@@ -23,7 +23,7 @@ jobs:
     env:
       SSH_AUTH_SOCK: /tmp/ssh_agent.sock
       PAGE_PRIVATEKEY: ${{ secrets.NOTE_PRIVATE }}
-      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATEKEY }}
+      MY_PAGE_PRIVATE: ${{ secrets.MY_PAGE_PRIVATE }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -54,6 +54,12 @@ jobs:
       - name: "clone my_page"
         run: |
             git clone --recursive git@github.com:sisyphus1212/my_page.git
+
+      - name: "Setup SSH Key"
+        run: |
+            mkdir -p ~/.ssh
+            echo "$MY_PAGE_PRIVATE" >> ~/.ssh/id_rsa
+            chmod 600 ~/.ssh/id_rsa
 
       - name: "sync my_page"
         run: |
