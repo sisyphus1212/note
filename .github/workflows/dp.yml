@@ -44,7 +44,7 @@ jobs:
           ssh-add - <<< "$PAGE_PRIVATEKEY"
           ssh-add -l
 
-      - name: "Add GitHub to the SSH known hosts file"
+      - name: "clone my_page"
         run: |
             git clone --recursive git@github.com:sisyphus1212/my_page.git
             ls
