@@ -61,7 +61,7 @@ jobs:
             git config --global user.email "lcj@yusur.tcch"
             git config --global user.name "lcj"
             git status
-            git submodule foreach --recursive 'git checkout master && git pull origin master'
+            git submodule foreach --recursive 'git checkout main && git pull origin main'
             git add .
             git commit -m "Automatically update all submodules to latest commits"
             git push
