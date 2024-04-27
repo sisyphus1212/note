@@ -36,13 +36,23 @@ jobs:
           git config --global url."https://github.com/".insteadOf
           ssh://git@github.com/
 
-      - name: "Add GitHub to the SSH known hosts file"
+      #- name: "Add GitHub to the SSH known hosts file"
+      #  run: |
+      #    mkdir -p ~/.ssh
+      #    ssh-keyscan github.com >> ~/.ssh/known_hosts
+      #    ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+      #    ssh-add - <<< "$PAGE_PRIVATEKEY"
+      #    ssh-add -l
+
+      - name: "Setup_SSH"
         run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-          ssh-add - <<< "$PAGE_PRIVATEKEY"
-          ssh-add -l
+            mkdir -p ~/.ssh
+            echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+            chmod 600 ~/.ssh/id_rsa
+            ssh-keyscan github.com >> ~/.ssh/known_hosts
+            ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+            ssh-add ~/.ssh/id_rsa
+            ssh-add -l
 
       - name: "clone my_page"
         run: |
