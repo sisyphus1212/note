@@ -70,6 +70,7 @@ jobs:
             git submodule foreach --recursive 'git checkout main && git pull origin main'
             git add .
             git commit -m "Automatically update all submodules to latest commits"
+            echo "====================="
             git push
 
       #- name: git init
