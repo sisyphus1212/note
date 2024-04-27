@@ -44,8 +44,7 @@ jobs:
       #    ssh-add - <<< "$PAGE_PRIVATEKEY"
       #    ssh-add -l
 
-      - name: "Setup_SSH"
-      - name: Setup SSH Key
+      - name: "Setup SSH Key"
         run: |
             mkdir -p ~/.ssh
             echo "${{ PAGE_PRIVATEKEY }}" > ~/.ssh/id_rsa
