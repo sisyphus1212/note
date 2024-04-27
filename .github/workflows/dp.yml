@@ -58,7 +58,7 @@ jobs:
       - name: "sync my_page"
         run: |
             mkdir -p ~/.ssh
-            echo "$MY_PAGE_PRIVATE" >> ~/.ssh/id_rsa
+            echo "$MY_PAGE_PRIVATE" > ~/.ssh/id_rsa
             chmod 600 ~/.ssh/id_rsa
             cd my_page
             git config --global user.email "lcj@yusur.tcch"
