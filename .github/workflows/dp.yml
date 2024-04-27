@@ -68,7 +68,7 @@ jobs:
             git add .
             git commit -m "Automatically update all submodules to latest commits"
             echo "====================="
-            git push
+            git push -v
 
       #- name: git init
       #  run: |
