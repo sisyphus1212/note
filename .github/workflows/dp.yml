@@ -54,8 +54,17 @@ jobs:
       - name: "clone my_page"
         run: |
             git clone --recursive git@github.com:sisyphus1212/my_page.git
-            ls my_page
-            ls my_page/source/
+
+      - name: "sync my_page"
+        run: |
+            cd my_page
+            git config --global user.email "lcj@yusur.tcch"
+            git config --global user.name "lcj"
+            git status
+            git submodule foreach --recursive 'git checkout master && git pull origin master'
+            git add .
+            git commit -m "Automatically update all submodules to latest commits"
+            git push
 
       #- name: git init
       #  run: |
