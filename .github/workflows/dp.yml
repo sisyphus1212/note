@@ -28,9 +28,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 2
+      #- uses: actions/checkout@v2
+      #  with:
+      #    fetch-depth: 2
       - name: Reconfigure git to use HTTP authentication
         run: >
           git config --global url."https://github.com/".insteadOf
@@ -54,7 +54,8 @@ jobs:
       - name: "clone my_page"
         run: |
             git clone --recursive git@github.com:sisyphus1212/my_page.git
-            ls
+            ls my_page
+            ls my_page/source/
 
       #- name: git init
       #  run: |
