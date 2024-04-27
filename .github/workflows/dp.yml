@@ -55,14 +55,11 @@ jobs:
         run: |
             git clone --recursive git@github.com:sisyphus1212/my_page.git
 
-      - name: "Setup SSH Key"
+      - name: "sync my_page"
         run: |
             mkdir -p ~/.ssh
             echo "$MY_PAGE_PRIVATE" >> ~/.ssh/id_rsa
             chmod 600 ~/.ssh/id_rsa
-
-      - name: "sync my_page"
-        run: |
             cd my_page
             git config --global user.email "lcj@yusur.tcch"
             git config --global user.name "lcj"
