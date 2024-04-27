@@ -47,7 +47,7 @@ jobs:
       - name: "Setup SSH Key"
         run: |
             mkdir -p ~/.ssh
-            ssh-add - <<< "$PAGE_PRIVATEKEY"
+            echo "$PAGE_PRIVATEKEY" > ~/.ssh/id_rsa
             ssh-add -l
             chmod 600 ~/.ssh/id_rsa
             ssh-keyscan github.com >> ~/.ssh/known_hosts
