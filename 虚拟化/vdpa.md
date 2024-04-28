@@ -7,6 +7,7 @@ categories:
   - [linux,网络开发,虚拟化开发]
 tags:
  - kernel network
+ - vdpa
 ---
 
 # vhost.c 代码逻辑
