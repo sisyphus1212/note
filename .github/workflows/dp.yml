@@ -99,7 +99,6 @@ jobs:
 
       - name: Hexo Deploy
         run: |
-          ssh-add -D
           echo "$AUTO_PRIVATE" > ~/.ssh/id_rsa
           bash ./sed_images_path.sh
           hexo clean
