@@ -8,6 +8,7 @@ categories:
 tags:
  - kernel network
 ---
+
 # vhost.c 代码逻辑
 ## vhost_devices 初始化
 struct virtio_net *vhost_devices[MAX_VHOST_DEVICE];
