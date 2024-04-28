@@ -103,6 +103,7 @@ jobs:
         run: |
           cd my_page
           echo "$AUTO_PRIVATE" > ~/.ssh/id_rsa
+          bash ./sync_article_post.sh
           hexo clean
           hexo generate
           bash ./sed_images_path.sh
