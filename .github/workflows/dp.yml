@@ -55,7 +55,7 @@ jobs:
         run: |
             git clone --recursive git@github.com:sisyphus1212/my_page.git
 
-      - name: "sync my_page"
+      - name: "Sync my_page"
         run: |
             mkdir -p ~/.ssh
             echo "$MY_PAGE_PRIVATE" > ~/.ssh/id_rsa
@@ -67,7 +67,6 @@ jobs:
             git submodule foreach --recursive 'git checkout main && git pull origin main'
             git add .
             git commit -m "Automatically update all submodules to latest commits"
-            echo "====================="
             git push -v
 
       #- name: git init
