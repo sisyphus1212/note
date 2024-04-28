@@ -24,7 +24,7 @@ jobs:
       SSH_AUTH_SOCK: /tmp/ssh_agent.sock
       PAGE_PRIVATEKEY: ${{ secrets.NOTE_PRIVATE }}
       MY_PAGE_PRIVATE: ${{ secrets.MY_PAGE_PRIVATE }}
-
+      AUTO_PRIVATE: ${{ secrets.AUTO_PRIVATE }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -97,12 +97,11 @@ jobs:
           npm install --save
           npm i hexo -g
 
-      #- name: Hexo Deploy
-      #  run: |
-      #    ssh-add -D
-      #    ssh-add - <<< "$PAGE_PRIVATEKEY"
-      #    ssh-add -l
-      #    bash ./sed_images_path.sh
-      #    hexo clean
-      #    hexo generate
-      #    hexo deploy
+      - name: Hexo Deploy
+        run: |
+          ssh-add -D
+          echo "$AUTO_PRIVATE" > ~/.ssh/id_rsa
+          bash ./sed_images_path.sh
+          hexo clean
+          hexo generate
+          hexo deploy
