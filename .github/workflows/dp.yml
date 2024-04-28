@@ -76,26 +76,26 @@ jobs:
       #      git status
       #      git submodule update --init --recursive
 
-      ## Runs a set of commands using the runners shell
-      #- name: Set Node
-      #  uses: actions/setup-node@v2
-      #  with:
-      #    node-version: '12.13'
+      # Runs a set of commands using the runners shell
+      - name: Set Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.13'
 
-      #- name: 缓存 Hexo
-      #  uses: actions/cache@v1
-      #  id: cache
-      #  with:
-      #    path: node_modules
-      #    key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
+      - name: 缓存 Hexo
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: node_modules
+          key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
 
-      #- name: Npm Install
-      #  #if: steps.cache.outputs.cache-hit != 'true'
-      #  run: |
-      #    npm update
-      #    npm install hexo-cli -g
-      #    npm install --save
-      #    npm i hexo -g
+      - name: Npm Install
+        #if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          npm update
+          npm install hexo-cli -g
+          npm install --save
+          npm i hexo -g
 
       #- name: Hexo Deploy
       #  run: |
