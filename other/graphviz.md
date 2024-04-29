@@ -85,7 +85,7 @@ digraph structs {
     struct1:f2 -> struct3:here;
     subgraph clusterAnimalImpl{
 		bgcolor = "yellow";
-		Dog[label = "{Dog| |+ bark() : void\l}" , shape = "record"];
+		Dog[label = "{Dog| |+ bark() : void\l + main() :void}" , shape = "record"];
 		Cat[label = "{Cat| |+ meow() : void\l}" , shape = "record"];
 	};
 }
