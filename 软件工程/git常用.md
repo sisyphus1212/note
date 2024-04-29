@@ -16,6 +16,7 @@ git 命令选项非常多，对于软件开发只需熟练掌握其中十几个�
 `git config --global user.email <邮箱地址>`
 `git config -l`
 git config --global core.autocrlf true
+
 ## 仓库操作
 ### 分支操作
 1. clone分支
