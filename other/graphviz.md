@@ -80,6 +80,7 @@ digraph G {
     ranksep = 1;
     rankdir = LR;    a -> b;    c;    b -> d;}
 ```
+
 # 例子
 ```graphviz
 digraph {
