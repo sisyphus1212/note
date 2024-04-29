@@ -68,6 +68,13 @@ digraph {
 ```
 
 # 连线方向约束
+```sh
+digraph G {
+  a -> c;
+  a -> b;
+  b -> c [constraint=false];
+}
+```
 ```graphviz
 digraph G {
   a -> c;
@@ -77,6 +84,13 @@ digraph G {
 ```
 
 # 连线上标签
+```sh
+digraph {
+  a -> a [label="AA" decorate=true]
+  a -> b [label="AB" decorate=true]
+  b -> b [label="BB" decorate=false]
+}
+```
 ```graphviz
 digraph {
   a -> a [label="AA" decorate=true]
@@ -86,6 +100,21 @@ digraph {
 ```
 
 # 方位控制
+```sh
+digraph {
+    rankdir=TB
+    subgraph cluster_vertical_example2{
+        Node1; Node6
+    }
+    subgraph cluster_vertical_example{
+        "Node2"-> "Node3";
+        "Node3"-> "Node4";
+        "Node4"->"Node5"
+        {rank=same; "Node4"; "Node5";}
+    }
+    Node1 -> Node2 [constraint=false, dir=back]
+}
+```
 ```graphviz
 digraph {
     rankdir=TB
@@ -103,6 +132,22 @@ digraph {
 ```
 
 # 结构体
+```sh
+digraph structs {
+    node[shape=record];
+    graph[rankdir=TB];
+        struct1[label="<f0> left|<f1> mid\ dle|<f2> right"];
+    struct2[label="<f0> one|<f1> two"];
+    struct3[label="hello\nworld |{ b |{c|<here> d|e}| f}| g | h"];
+    struct1:f1 -> struct2:f0;
+    struct1:f2 -> struct3:here;
+    subgraph clusterAnimalImpl{
+		bgcolor = "yellow";
+		Dog[label = "{Dog| |+ bark() : void\l + main() :void}" , shape = "record"];
+		Cat[label = "{Cat| |+ meow() : void\l}" , shape = "record"];
+	};
+}
+```
 ```graphviz
 digraph structs {
     node[shape=record];
@@ -121,6 +166,14 @@ digraph structs {
 ```
 
 # 方向，尺寸，间距
+```
+digraph G {
+    nodesep = 2;
+    ranksep = 1;
+    rankdir = LR;
+    a -> b; c; b -> d;
+}
+```
 ```graphviz
 digraph G {
     nodesep = 2;
