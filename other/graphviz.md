@@ -57,7 +57,7 @@ digraph {
 }
 ```
 
-# ---
+# 方位控制
 ```graphviz
 digraph {
     rankdir=TB
