@@ -62,6 +62,7 @@ digraph {
 digraph {
     rankdir=LR
     node[]"Node1";
+    node[]"Node6";
     subgraph cluster_vertical_example{
     "Node2"-> "Node3";
     "Node3"-> "Node4";
@@ -69,6 +70,7 @@ digraph {
     {rankdir=LR rank=same; "Node2"; "Node3"; "Node4";}
     "Node4"->"Node5"
     }
-    Node1 -> Node3
+    Node1 -> Node2
+    { Node1 -> Node6 }
 }
 ```
