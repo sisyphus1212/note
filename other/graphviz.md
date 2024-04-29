@@ -54,3 +54,4 @@ digraph {
   a -> b [label="AB" decorate=true]
   b -> b [label="BB" decorate=false]
 }
+```
