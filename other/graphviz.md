@@ -98,6 +98,7 @@ digraph {
 ```graphviz
 digraph {
     newrank=true;
+    rankdir="LR";
     subgraph clusterA {
         a0 -> a1 -> a2 [style = invis] // set node order in cluster
         a2 -> a0 [constraint=false] //don't use this edge for ranking
@@ -106,6 +107,10 @@ digraph {
     subgraph clusterB {
         b0 -> b1 -> b2 [style = invis]
         b2 -> b0  [constraint=false]
+    }
+    subgraph clusterc {
+        c0 -> c1 -> c2 [style = invis]
+        c2 -> c0  [constraint=false]
     }
 }
 ```
