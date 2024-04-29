@@ -100,7 +100,9 @@ digraph G {
 digraph G {
     a0 -> b0:w;
     a1 -> b1:e;
-    a2 -> b2:se;
+    a2 -> b2:n;
+    a3 -> b3:s;
+    a3 -> b3:sn;
 }
 ```
 # 例子
