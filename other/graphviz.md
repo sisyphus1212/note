@@ -50,7 +50,7 @@ digraph {
 ```
 
 # 合并连线
-```graphviz
+```sh
 digraph {
     concentrate=true
     a -> b [label="1"]
