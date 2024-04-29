@@ -326,13 +326,30 @@ a2,
 46 -> 1
 47 -> 1
 48 -> 1
-a->bP;
-b->dP;
-c->dP;
-a->bP;
-b->dP;
-c->dP;
-
+a->bP0;
+b->dP1;
+c->dP2;
+a->bP3;
+b->dP4;
+c->dP5;
+a->bP0;
+b->dP1;
+c->dP2;
+a->bP3;
+b->dP4;
+c->dP5;
+a->bP0;
+b->dP1;
+c->dP2;
+a->bP3;
+b->dP4;
+c->dP5;
+a->bP0;
+b->dP1;
+c->dP2;
+a->bP3;
+b->dP4;
+c->dP5;
 }
 ```
 
