@@ -86,7 +86,8 @@ digraph {
     label="Cluster A";
     {rank=same; node1; node3; node5; node7;}
   }
-subgraph cluster_a {
+
+  subgraph cluster_a {
     label="Cluster A";
     {rank=same; node1; node3; node5; node7;}
   }
