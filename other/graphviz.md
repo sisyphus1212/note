@@ -188,3 +188,14 @@ digraph graph_name{
         nest_B -> global_B;
 }
 ```
+```graphviz
+digraph graph_name{
+	Happiness -- {
+		Peace
+		Love
+		Soul
+		Mind
+		Life
+		Health
+	}
+}
