@@ -71,7 +71,7 @@ digraph {
     }
 
     {rank=same; "Node1"; "Node6";}
-    Node2 -> Node1 [ [dir=back]]
+    Node2 -> Node1[dir=back]
     Node1 -> Node6
 }
 ```
