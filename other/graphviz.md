@@ -39,7 +39,7 @@ digraph {
 }
 ```
 
-# 合并连线
+# 连线方向约束
 ```graphviz
 digraph G {
   a -> c;
