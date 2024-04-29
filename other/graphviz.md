@@ -128,6 +128,7 @@ digraph G {
 ```graphviz
 graph graph_name{
     labelloc="t"
+    layout=twopi; graph [ranksep=2];
 	Happiness -- {
 		Peace
 		Love
