@@ -67,9 +67,12 @@ digraph {
         "Node4"->"Node5"
         {rank=same; "Node4"; "Node5";}
     }
+    subgraph cluster_vertical_example{
+    }
     node[]"Node6";
     node[]"Node1";
     {rank=same; "Node1"; "Node6";}
-
+    Node2 -> Node1[dir=back]
+    Node1 -> Node6
 }
 ```
