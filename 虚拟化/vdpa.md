@@ -277,7 +277,6 @@ digraph g {
 		Dog[label = "{Dog| |+ bark() : void\l}" , shape = "record"];
 		Cat[label = "{Cat| |+ meow() : void\l}" , shape = "record"];
 	};
-
 }
 ```
 
