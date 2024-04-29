@@ -95,3 +95,16 @@ digraph {
   node11 -> node2
 }
 ```
+```graphviz
+digraph {
+    subgraph clusterA {
+        a0 -> a1 -> a2 [style = invis] // set node order in cluster
+        a2 -> a0 [constraint=false] //don't use this edge for ranking
+    }
+
+    subgraph clusterB {
+        b0 -> b1 -> b2 [style = invis]
+        b2 -> b0  [constraint=false]
+    }
+}
+```
