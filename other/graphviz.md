@@ -70,7 +70,6 @@ digraph {
     node[]"Node6";
     node[]"Node1";
     {rank=same; "Node1"; "Node6";}
-    Node2 -> Node1[dir=back]
-    Node1 -> Node6
+
 }
 ```
