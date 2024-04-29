@@ -124,6 +124,20 @@ digraph G {
 }
 ```
 
+# 脑图
+```graphviz
+graph graph_name{
+	Happiness -- {
+		Peace
+		Love
+		Soul
+		Mind
+		Life
+		Health
+	}
+}
+```
+
 # 例子
 ```graphviz
 digraph {
@@ -189,15 +203,3 @@ digraph graph_name{
 }
 ```
 
-```graphviz
-graph graph_name{
-	Happiness -- {
-		Peace
-		Love
-		Soul
-		Mind
-		Life
-		Health
-	}
-}
-```
