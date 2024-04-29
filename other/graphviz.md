@@ -106,6 +106,13 @@ digraph G {
     a3_2 -> b3_2:se;
 }
 ```
+
+# 颜色控制
+```graphviz
+digraph G {
+  rankdir=LR  node [shape=box, color=blue]
+  node1 [style=filled]   node2 [style=filled, fillcolor=red]   node0 -> node1 -> node2}
+```
 # 例子
 ```graphviz
 digraph {
