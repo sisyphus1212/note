@@ -95,6 +95,7 @@ digraph G {
     a -> b; c; b -> d;
 }
 ```
+# port 属性
 
 # 例子
 ```graphviz
