@@ -66,9 +66,8 @@ digraph {
     subgraph cluster_vertical_example{
         "Node2"-> "Node3";
         "Node3"-> "Node4";
-
-        {rank=same; "Node2"; "Node3"; "Node4";}
         "Node4"->"Node5"
+        {rank=same; "Node2"; "Node3"; "Node4";}
     }
 
     {rank=same; "Node1"; "Node6";}
