@@ -342,6 +342,7 @@ digraph graph_name{
         sub_B -> global_B;
         nest_B -> global_B;
 }
+```
 ```graphviz
 digraph graph_name{
     bgcolor="transparent";//背景透明
