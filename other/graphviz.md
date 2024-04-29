@@ -38,6 +38,7 @@ digraph {
     d -> b
 }
 ```
+
 ```graphviz
 digraph G {
   a -> c;
