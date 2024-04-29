@@ -72,7 +72,6 @@ digraph {
     }
 
     {rankdir=LR rank=same; "Node1"; "Node6";}
-
     Node1 -> Node2
     Node1 -> Node6
 }
