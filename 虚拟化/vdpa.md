@@ -270,7 +270,15 @@ graph TD;
 ```
 
 ```graphviz
-
+digraph first2{
+a;
+b;
+c;
+d;
+a->b;
+b->d;
+c->d;
+}
 ```
 
 
