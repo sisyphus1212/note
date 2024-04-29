@@ -75,6 +75,7 @@ digraph {
 ```
 ```graphviz
 digraph {
+rankdir=LR
 subgraph cluster_0 { A1; A2; A3 }
 subgraph cluster_1 { B1; B2; B3 }
 subgraph cluster_2 { C1; C2; C3 }
