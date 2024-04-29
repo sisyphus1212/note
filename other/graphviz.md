@@ -78,7 +78,9 @@ digraph {
 digraph G {
     nodesep = 2;
     ranksep = 1;
-    rankdir = LR;    a -> b;    c;    b -> d;}
+    rankdir = LR;
+    a -> b;    c;    b -> d;
+}
 ```
 
 # 例子
