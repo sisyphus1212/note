@@ -76,6 +76,7 @@ digraph {
 ```graphviz
 digraph {
   rankdir=LR
+
   subgraph cluster_b {
     label="Cluster B";
     {rank=same; node2; node4; node6; node8;}
