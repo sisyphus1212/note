@@ -58,18 +58,14 @@ digraph {
 ```
 ```graphviz
 digraph {
-subgraph cluster_vertical_example{
-node[]"Node1";
-node[]"Node2";
-node[]"Node3";
-node[]"Node4";
-node[]"Node5";
+    subgraph cluster_vertical_example{
+    node[]"Node1";
 
-"Node2"-> "Node3";
-"Node3"-> "Node4";
+    "Node2"-> "Node3";
+    "Node3"-> "Node4";
 
-{rankdir=LR rank=same; "Node2"; "Node3"; "Node4";}
-"Node4"->"Node5"
-}
+    {rankdir=LR rank=same; "Node2"; "Node3"; "Node4";}
+    "Node4"->"Node5"
+    }
 }
 ```
