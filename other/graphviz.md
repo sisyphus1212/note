@@ -111,7 +111,10 @@ digraph G {
 ```graphviz
 digraph G {
   rankdir=LR  node [shape=box, color=blue]
-  node1 [style=filled]   node2 [style=filled, fillcolor=red]   node0 -> node1 -> node2}
+  node1 [style=filled]
+  node2 [style=filled, fillcolor=red]
+  node0 -> node1 -> node2
+}
 ```
 # 例子
 ```graphviz
