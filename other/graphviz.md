@@ -58,6 +58,14 @@ digraph {
     d -> b
 }
 ```
+```graphviz
+digraph {
+    concentrate=true
+    a -> b [label="1"]
+    c -> b
+    d -> b
+}
+```
 
 # 连线方向约束
 ```graphviz
