@@ -38,4 +38,9 @@ digraph {
     d -> b
 }
 ```
-
+```graphviz
+digraph G {
+  a -> c;
+  a -> b;
+  b -> c [constraint=false];
+}
