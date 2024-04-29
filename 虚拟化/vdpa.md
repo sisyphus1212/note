@@ -271,85 +271,122 @@ graph TD;
 
 ```graphviz
 digraph first2{
-a;
-b;
-c;
-d;
-a1;
-a2,
-0 1;
-1 1;
-2 1;
-3 1;
-4 1;
-5 1;
-6 1;
-7 1;
-8 1;
-9 1;
-10 -> 1;
-11 -> 1;
-12 -> 1;
-13 -> 1;
-14 -> 1;
-15 -> 1;
-16 -> 1;
-17 -> 1;
-18 -> 1;
-19 -> 1;
-20 -> 1;
-21 -> 1;
-22 -> 1;
-23 -> 1;
-24 -> 1;
-25 -> 1;
-26 -> 1;
-27 -> 1;
-28 -> 1;
-29 -> 1;
-30 -> 1;
-31 -> 1;
-32 -> 1;
-33 -> 1;
-34 -> 1;
-35 -> 1;
-36 -> 1;
-37 -> 1;
-38 -> 1;
-39 -> 1;
-40 -> 1;
-41 -> 1;
-42 -> 1;
-43 -> 1;
-44 -> 1;
-45 -> 1;
-46 -> 1;
-47 -> 1;
-48 -> 1;
-0 -> a0->bP0 -> 1;
-1 -> b1->dP1 -> 1;
-2 -> c2->dP2 -> 1;
-3 -> a3->bP3 -> 1;
-4 -> b4->dP4 -> 1;
-5 -> c5->dP5 -> 1;
-6 -> a6->bP0 -> 1;
-7 -> b7->dP1 -> 1;
-8 -> c8->dP2 -> 1;
-9 -> a9->bP3 -> 1;
-10 -> b10->dP4 -> 1;
-11 -> c11->dP5 -> 1;
-12 -> a12->bP0 -> 1;
-13 -> b13->dP1 -> 1;
-14 -> c14->dP2 -> 1;
-15 -> a15->bP3 -> 1;
-16 -> b16->dP4 -> 1;
-17 -> c17->dP5 -> 1;
-18 -> a18->bP0 -> 1;
-19 -> b19->dP1 -> 1;
-20 -> c20->dP2 -> 1;
-21 -> a21->bP3 -> 1;
-22 -> b22->dP4 -> 1;
-23 -> c23->dP5 -> 1;
+digraph g {
+fontname="Helvetica,Arial,sans-serif"
+node [fontname="Helvetica,Arial,sans-serif"]
+edge [fontname="Helvetica,Arial,sans-serif"]
+graph [
+rankdir = "LR"
+];
+node [
+fontsize = "16"
+shape = "ellipse"
+];
+edge [
+];
+"node0" [
+label = "<f0> 0x10ba8| <f1>"
+shape = "record"
+];
+"node1" [
+label = "<f0> 0xf7fc4380| <f1> | <f2> |-1"
+shape = "record"
+];
+"node2" [
+label = "<f0> 0xf7fc44b8| | |2"
+shape = "record"
+];
+"node3" [
+label = "<f0> 3.43322790286038071e-06|44.79998779296875|0"
+shape = "record"
+];
+"node4" [
+label = "<f0> 0xf7fc4380| <f1> | <f2> |2"
+shape = "record"
+];
+"node5" [
+label = "<f0> (nil)| | |-1"
+shape = "record"
+];
+"node6" [
+label = "<f0> 0xf7fc4380| <f1> | <f2> |1"
+shape = "record"
+];
+"node7" [
+label = "<f0> 0xf7fc4380| <f1> | <f2> |2"
+shape = "record"
+];
+"node8" [
+label = "<f0> (nil)| | |-1"
+shape = "record"
+];
+"node9" [
+label = "<f0> (nil)| | |-1"
+shape = "record"
+];
+"node10" [
+label = "<f0> (nil)| <f1> | <f2> |-1"
+shape = "record"
+];
+"node11" [
+label = "<f0> (nil)| <f1> | <f2> |-1"
+shape = "record"
+];
+"node12" [
+label = "<f0> 0xf7fc43e0| | |1"
+shape = "record"
+];
+"node0":f0 -> "node1":f0 [
+id = 0
+];
+"node0":f1 -> "node2":f0 [
+id = 1
+];
+"node1":f0 -> "node3":f0 [
+id = 2
+];
+"node1":f1 -> "node4":f0 [
+id = 3
+];
+"node1":f2 -> "node5":f0 [
+id = 4
+];
+"node4":f0 -> "node3":f0 [
+id = 5
+];
+"node4":f1 -> "node6":f0 [
+id = 6
+];
+"node4":f2 -> "node10":f0 [
+id = 7
+];
+"node6":f0 -> "node3":f0 [
+id = 8
+];
+"node6":f1 -> "node7":f0 [
+id = 9
+];
+"node6":f2 -> "node9":f0 [
+id = 10
+];
+"node7":f0 -> "node3":f0 [
+id = 11
+];
+"node7":f1 -> "node1":f0 [
+id = 12
+];
+"node7":f2 -> "node8":f0 [
+id = 13
+];
+"node10":f1 -> "node11":f0 [
+id = 14
+];
+"node10":f2 -> "node12":f0 [
+id = 15
+];
+"node11":f2 -> "node1":f0 [
+id = 16
+];
 }
 ```
 
