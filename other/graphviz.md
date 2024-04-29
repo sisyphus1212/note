@@ -74,7 +74,12 @@ digraph {
 }
 ```
 # 方向，尺寸，间距
-
+```graphviz
+digraph G {
+    nodesep = 2;
+    ranksep = 1;
+    rankdir = LR;    a -> b;    c;    b -> d;}
+```
 # 例子
 ```graphviz
 digraph {
