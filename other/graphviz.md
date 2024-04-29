@@ -67,11 +67,11 @@ digraph {
         "Node2"-> "Node3";
         "Node3"-> "Node4";
         "Node4"->"Node5"
-        {rank=same; "Node2"; "Node3"; "Node4";}
+        {rank=same; "Node4"; "Node5";}
     }
 
     {rank=same; "Node1"; "Node6";}
-    Node1 -> Node2
+    Node2 -> Node1
     Node1 -> Node6
 }
 ```
