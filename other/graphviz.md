@@ -73,6 +73,7 @@ digraph {
     Node1 -> Node2 [constraint=false, dir=back]
 }
 ```
+# 方向，尺寸，间距
 
 # 例子
 ```graphviz
