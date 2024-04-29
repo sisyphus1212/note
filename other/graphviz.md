@@ -98,7 +98,9 @@ digraph G {
 # port 属性
 ```graphviz
 digraph G {
-    a -> b [tailport = e];
+    a0 -> b0:w;
+    a1 -> b1:e;
+    a2 -> b2:e;
 }
 ```
 # 例子
