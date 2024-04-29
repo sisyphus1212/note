@@ -22,9 +22,9 @@ digraph {
 #
 ```graphviz
 digraph {
-  comment="I am a graph"
-  A [comment="I am node A"]
-  B [comment="I am node B"]
-  A->B [comment="I am an edge"]
+    concentrate=true
+    a -> b [label="1"]
+    c -> b
+    d -> b
 }
 ```
