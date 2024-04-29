@@ -83,6 +83,11 @@ digraph structs {
     struct3[label="hello\nworld |{ b |{c|<here> d|e}| f}| g | h"];
     struct1:f1 -> struct2:f0;
     struct1:f2 -> struct3:here;
+    subgraph clusterAnimalImpl{
+		bgcolor = "yellow";
+		Dog[label = "{Dog| |+ bark() : void\l}" , shape = "record"];
+		Cat[label = "{Cat| |+ meow() : void\l}" , shape = "record"];
+	};
 }
 ```
 
