@@ -261,6 +261,28 @@ digraph {
 ```
 ```graphviz
 digraph {
+  rankdir=TB
+
+  subgraph cluster_b {
+    label="Cluster B";
+    {rank=same; node2; node4; node6; node8;}
+  }
+
+  subgraph cluster_a {
+    label="Cluster A";
+    {rank=same; node1; node3; node5; node7;}
+  }
+
+  subgraph cluster_c {
+    label="Cluster c";
+    {rank=same; node11; node12; node15; node17;}
+  }
+  node1 -> node11 []
+  node11 -> node2
+}
+```
+```
+digraph {
     newrank=true;
     rankdir="LR";
     subgraph clusterA {
@@ -279,6 +301,46 @@ digraph {
     }
 }
 ```
+```graphviz
+digraph {
+    newrank=true;
+    rankdir="LR";
+    subgraph clusterA {
+        a0 -> a1 -> a2 [style = invis] // set node order in cluster
+        a2 -> a0 [constraint=false] //don't use this edge for ranking
+    }
+
+    subgraph clusterB {
+        b0 -> b1 -> b2 [style = invis]
+        b2 -> b0  [constraint=false]
+    }
+
+    subgraph clusterc {
+        c0 -> c1 -> c2 [style = invis]
+        c2 -> c0  [constraint=false]
+    }
+}
+```
+```
+digraph graph_name{
+    bgcolor="transparent";//背景透明
+        subgraph cluster_subgraph_name{//聚集子图
+            node[shape=box];
+            cluster_A -> cluster_B;
+        }
+        subgraph subgraph_name{//子图
+            node[shape=none];
+            sub_A -> sub_B;
+        }
+        {//匿名子图
+            node[shape=octagon];
+            nest_A -> nest_B;
+        }
+        global_A -> global_B;
+        cluster_B -> global_B;
+        sub_B -> global_B;
+        nest_B -> global_B;
+}
 ```graphviz
 digraph graph_name{
     bgcolor="transparent";//背景透明
