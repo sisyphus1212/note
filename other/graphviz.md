@@ -60,8 +60,9 @@ digraph {
 #
 ```graphviz
 digraph {
-    subgraph cluster_vertical_example{
     node[]"Node1";
+    subgraph cluster_vertical_example{
+
 
     "Node2"-> "Node3";
     "Node3"-> "Node4";
