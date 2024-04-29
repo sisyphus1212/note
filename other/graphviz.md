@@ -39,6 +39,7 @@ digraph {
 }
 ```
 
+# 合并连线
 ```graphviz
 digraph G {
   a -> c;
