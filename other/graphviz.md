@@ -183,6 +183,16 @@ digraph G {
 }
 ```
 # port 属性
+```
+digraph G {
+    a0 -> b0:w;
+    a1 -> b1:e;
+    a2 -> b2:n;
+    a3 -> b3:s;
+    a3_1 -> b3_1:nw;
+    a3_2 -> b3_2:se;
+}
+```
 ```graphviz
 digraph G {
     a0 -> b0:w;
