@@ -87,10 +87,11 @@ digraph {
     {rank=same; node1; node3; node5; node7;}
   }
 
-  subgraph cluster_a {
-    label="Cluster A";
-    {rank=same; node1; node3; node5; node7;}
+  subgraph cluster_c {
+    label="Cluster c";
+    {rank=same; node11; node12; node15; node17;}
   }
-
+  node1 -> node11 []
+  node11 -> node2
 }
 ```
