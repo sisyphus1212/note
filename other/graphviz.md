@@ -1,3 +1,4 @@
+# 注意1,2,3,4 箭头的起变化始
 ```graphviz
 digraph {
   compound=true;
