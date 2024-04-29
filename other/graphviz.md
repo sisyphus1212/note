@@ -75,14 +75,16 @@ digraph {
 ```
 ```graphviz
 digraph {
-rankdir=LR
-subgraph cluster_0 { A1; A2; A3 }
-subgraph cluster_1 { B1; B2; B3 }
-subgraph cluster_2 { C1; C2; C3 }
-subgraph cluster_3 { D1; D2; D3 }
-subgraph cluster_4 { E1; E2; E3 }
-}
-```
-```graphviz
+  compound=true;
 
+  subgraph cluster_a {
+    label="Cluster A";
+    {rank=same; node1; node3; node5; node7;}
+  }
+  subgraph cluster_b {
+    label="Cluster B";
+    {rank=same; node2; node4; node6; node8;}
+  }
+
+}
 ```
