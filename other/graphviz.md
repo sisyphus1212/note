@@ -237,7 +237,7 @@ graph graph_name{
 ```
 
 # 例子
-```graphviz
+```
 digraph {
   rankdir=TB
 
