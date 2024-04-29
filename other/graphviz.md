@@ -73,3 +73,17 @@ digraph {
     Node1 -> Node2 [constraint=false, dir=back]
 }
 ```
+```graphviz
+graph {
+  node [colorscheme=oranges9] # Apply colorscheme to all nodes
+  1 [color=1]
+  2 [color=2]
+  3 [color=3]
+  4 [color=4]
+  5 [color=5]
+  6 [color=6]
+  7 [color=7]
+  8 [color=8]
+  9 [color=9]
+}
+```
