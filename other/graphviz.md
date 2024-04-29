@@ -127,6 +127,7 @@ digraph G {
 # 脑图
 ```graphviz
 graph graph_name{
+    labelloc="t"
 	Happiness -- {
 		Peace
 		Love
