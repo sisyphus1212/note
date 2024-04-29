@@ -74,7 +74,7 @@ digraph {
 }
 ```
 ```graphviz
-graph {
+digraph {
   node [colorscheme=oranges9] # Apply colorscheme to all nodes
   1 [color=1]
   2 [color=2]
