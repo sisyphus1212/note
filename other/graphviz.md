@@ -127,7 +127,7 @@ digraph G {
 # 脑图
 ```graphviz
 graph graph_name{
-    layout=neato; graph [ranksep=1.5];
+    layout=dot; graph [ranksep=1.5];
 	Happiness -- {
 		Peace
 		Love
