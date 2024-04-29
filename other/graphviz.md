@@ -47,3 +47,9 @@ digraph G {
   b -> c [constraint=false];
 }
 ```
+```graphviz
+digraph {
+  a -> a [label="AA" decorate=true]
+  a -> b [label="AB" decorate=true]
+  b -> b [label="BB" decorate=false]
+}
