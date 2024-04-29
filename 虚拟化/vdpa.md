@@ -270,7 +270,6 @@ graph TD;
 ```
 
 ```graphviz
-digraph first2{
 digraph g {
 fontname="Helvetica,Arial,sans-serif"
 node [fontname="Helvetica,Arial,sans-serif"]
