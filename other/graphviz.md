@@ -61,15 +61,14 @@ digraph {
 ```graphviz
 digraph {
     rankdir=LR
-    node[]"Node6";
-    node[]"Node1";
     subgraph cluster_vertical_example{
         "Node2"-> "Node3";
         "Node3"-> "Node4";
         "Node4"->"Node5"
         {rank=same; "Node4"; "Node5";}
     }
-
+    node[]"Node6";
+    node[]"Node1";
     {rank=same; "Node1"; "Node6";}
     Node2 -> Node1[dir=back]
     Node1 -> Node6
