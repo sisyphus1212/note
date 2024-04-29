@@ -19,7 +19,8 @@ digraph {
   node7 -> node8 [label="4" ltail="cluster_a" lhead="cluster_b"];
 }
 ```
-#
+
+# 合并连线
 ```graphviz
 digraph {
     concentrate=true
