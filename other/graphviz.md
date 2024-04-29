@@ -75,15 +75,11 @@ digraph {
 ```
 ```graphviz
 digraph {
-  node [colorscheme=oranges9] # Apply colorscheme to all nodes
-  1 [color=1]
-  2 [color=2]
-  3 [color=3]
-  4 [color=4]
-  5 [color=5]
-  6 [color=6]
-  7 [color=7]
-  8 [color=8]
-  9 [color=9]
+subgraph cluster_0 { A1 → A2 → A3 }
+subgraph cluster_1 { B1 → B2 → B3 }
+subgraph cluster_2 { C1 → C2 → C3 }
+subgraph cluster_3 { D1 → D2 → D3 }
+subgraph cluster_4 { E1 → E2 → E3 }
+{ A1 B1 } → C1 → { D1 E1 }
 }
 ```
