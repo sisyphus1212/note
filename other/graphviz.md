@@ -135,6 +135,11 @@ graph graph_name{
 		Life
 		Health
 	}
+    Love -- {
+		Giving
+		People
+		Beauty
+	}
 }
 ```
 
