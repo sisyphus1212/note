@@ -64,14 +64,14 @@ digraph {
     node[]"Node6";
     node[]"Node1";
     subgraph cluster_vertical_example{
-    "Node2"-> "Node3";
-    "Node3"-> "Node4";
+        "Node2"-> "Node3";
+        "Node3"-> "Node4";
 
-    {rankdir=TB rank=same; "Node2"; "Node3"; "Node4";}
-    "Node4"->"Node5"
+        {rank=same; "Node2"; "Node3"; "Node4";}
+        "Node4"->"Node5"
     }
 
-    {rankdir=TB rank=same; "Node1"; "Node6";}
+    {rank=same; "Node1"; "Node6";}
     Node1 -> Node2
     Node1 -> Node6
 }
