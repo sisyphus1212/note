@@ -1,3 +1,13 @@
+---
+title: dpdk 内存管理
+date: 2023-12-21 14:53:25
+categories:
+- [dpdk]
+tags:
+- dpdk
+- 内存管理
+- mbuf
+---
 # 注意1,2,3,4 箭头的起始变化
 ```graphviz
 digraph {
