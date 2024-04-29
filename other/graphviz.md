@@ -109,7 +109,7 @@ digraph G {
 
 # 颜色控制
 style：filled, invisible, diagonals, rounded. dashed, dotted, solid, bold
-color:green,blue,lightblue,yellow
+color:green,blue,lightblue,yellow,grey
 ```graphviz
 digraph G {
   rankdir=LR  node [shape=box, color=blue]
