@@ -127,7 +127,7 @@ digraph G {
 # 脑图
 ```graphviz
 graph graph_name{
-    layout=twopi; graph [ranksep=2];
+    layout=twopi; graph [ranksep=1.5];
 	Happiness -- {
 		Peace
 		Love
