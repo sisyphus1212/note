@@ -48,6 +48,7 @@ digraph G {
 }
 ```
 
+# 连线上标签
 ```graphviz
 digraph {
   a -> a [label="AA" decorate=true]
@@ -55,3 +56,4 @@ digraph {
   b -> b [label="BB" decorate=false]
 }
 ```
+
