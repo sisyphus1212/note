@@ -190,7 +190,7 @@ digraph graph_name{
 ```
 
 ```graphviz
-digraph graph_name{
+graph graph_name{
 	Happiness -- {
 		Peace
 		Love
