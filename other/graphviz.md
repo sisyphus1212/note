@@ -70,6 +70,7 @@ digraph {
     {rankdir=LR rank=same; "Node2"; "Node3"; "Node4";}
     "Node4"->"Node5"
     }
+
     {rankdir=LR rank=same; "Node1"; "Node6";}
 
     Node1 -> Node2
