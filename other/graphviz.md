@@ -97,6 +97,7 @@ digraph {
 ```
 ```graphviz
 digraph {
+    newrank=true;
     subgraph clusterA {
         a0 -> a1 -> a2 [style = invis] // set node order in cluster
         a2 -> a0 [constraint=false] //don't use this edge for ranking
