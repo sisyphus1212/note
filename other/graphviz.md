@@ -79,7 +79,7 @@ digraph G {
     nodesep = 2;
     ranksep = 1;
     rankdir = LR;
-    a -> b;    c;    b -> d;
+    a -> b; c; b -> d;
 }
 ```
 
