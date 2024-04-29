@@ -184,6 +184,7 @@ digraph G {
 ```
 
 # port 属性
+
 ```
 digraph G {
     a0 -> b0:w;
