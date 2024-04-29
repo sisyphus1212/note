@@ -116,6 +116,7 @@ digraph G {
   node0 -> node1 -> node2
 }
 ```
+
 # 例子
 ```graphviz
 digraph {
