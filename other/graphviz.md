@@ -1,4 +1,4 @@
-
+```graphviz
 digraph {
   compound=true;
 
@@ -17,3 +17,4 @@ digraph {
   node5 -> node6 [label="3" lhead="cluster_b"];
   node7 -> node8 [label="4" ltail="cluster_a" lhead="cluster_b"];
 }
+```
