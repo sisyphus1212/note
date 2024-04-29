@@ -269,15 +269,4 @@ graph TD;
 
 ```
 
-```graphviz
-digraph g {
-	Animal[label = "{Animal | + name : String\l+ age : int\l |+ die() : void\l}", shape = "record" ];
-	subgraph clusterAnimalImpl{
-		bgcolor = "yellow";
-		Dog[label = "{Dog| |+ bark() : void\l}" , shape = "record"];
-		Cat[label = "{Cat| |+ meow() : void\l}" , shape = "record"];
-	};
-}
-```
-
 
