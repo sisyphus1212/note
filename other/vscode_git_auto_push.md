@@ -14,7 +14,7 @@ tags: vscode
         {
             "match": "\\.*",
             "isAsync": true,
-            "cmd": "pushd ${fileDirname} && git pull && git add .* && git commit -m auto_update && git push -f",
+            "cmd": "cd ${fileDirname} && git pull && git add .* && git commit -m auto_update && git push -f",
             "event": "onFileChange"
         }
     ]
