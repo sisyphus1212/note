@@ -21,7 +21,7 @@ graph graph_name{
         mempool
 	}
     mempool -- {
-        rte_mempool_cache
+        rte_mempool_cache  [color=red]
     }
     malloc_heaps -- {
         rte_malloc
