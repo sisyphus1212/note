@@ -19,12 +19,19 @@ graph graph_name{
         fbarray  [color=red]
         rte_memzone
         mempool
+        single_file_segments
+        page_per_file
+        legacy mode
+        dynamic mode
+        debug mode
 	}
     mempool -- {
         rte_mempool_cache  [color=red]
     }
     malloc_heaps -- {
         rte_malloc
+        malloc_heap_add_memzone
+        eal_memalloc_alloc_seg_bulk
     }
     rte_malloc -- {
         分裂
