@@ -1,4 +1,15 @@
 
+---
+title: vdpa代码逻辑
+date: 2023-09-20 10:04:03
+index_img: https://img-en.fs.com/community/upload/wangEditor/202003/24/_1585046553_TZOmBePO8Z.jpg
+categories:
+  - [linux,网络开发,虚拟化开发]
+tags:
+ - kernel_network
+ - vdpa
+---
+
 # vhost.c 代码逻辑
 ## vhost_devices 初始化
 struct virtio_net *vhost_devices[MAX_VHOST_DEVICE];
