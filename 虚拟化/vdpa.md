@@ -102,7 +102,8 @@ graph TD;
         vhost_user_set_mem_table --> vhost_user_mmap_region
     end
     subgraph VHOST_USER_GET_VRING_BASE
-        vhost_user_get_vring_base -->
+        vhost_user_get_vring_base --> vhost_destroy_device_notify
+                                  -->
     end
     subgraph start [start_vdpa]
     main --> start_vdpa
