@@ -104,6 +104,7 @@ graph TD;
     subgraph VHOST_USER_GET_VRING_BASE
         vhost_user_get_vring_base --> vhost_destroy_device_notify
                                   --> ysk2_vdpa_close
+                                  ysk2_dev_close
 
     end
     subgraph start [start_vdpa]
