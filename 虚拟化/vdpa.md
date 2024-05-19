@@ -224,6 +224,7 @@ graph TD;
     msg_id5 -.-> VHOST_USER_SET_MEM_TABLE
     msg_id12 -. post enable.-> _vhost_user_notify_queue_state
     msg_id13 -. post:17 enable.-> _vhost_user_notify_queue_state
+    msg_id11 -.-> VHOST_USER_GET_VRING_BASE
 
     subgraph dev_status
         %% 0x0(VIRTIO_DEVICE_STATUS_RESET)
