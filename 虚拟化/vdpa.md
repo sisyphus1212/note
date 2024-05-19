@@ -101,7 +101,8 @@ graph TD;
     subgraph VHOST_USER_SET_MEM_TABLE
         vhost_user_set_mem_table --> vhost_user_mmap_region
     end
-
+    subgraph VHOST_USER_SET_MEM_TABLE
+    end
     subgraph start [start_vdpa]
     main --> start_vdpa
          --> rte_vhost_driver_start(path='/tmp/vdpa-socket0')
