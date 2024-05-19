@@ -164,7 +164,7 @@ graph TD;
         msg_id8(VHOST_USER_SET_VRING_NUM)
         msg_id9(VHOST_USER_SET_VRING_ADDR)
         msg_id10(VHOST_USER_SET_VRING_BASE)
-        %%msg_id11(VHOST_USER_GET_VRING_BASE)
+        msg_id11(VHOST_USER_GET_VRING_BASE)
         msg_id12(VHOST_USER_SET_VRING_KICK)
         msg_id13(VHOST_USER_SET_VRING_CALL)
         %%msg_id14(VHOST_USER_SET_VRING_ERR)
@@ -205,6 +205,7 @@ graph TD;
                     == 17 ==> msg_id13
                     == 18 ==> msg_id40
                     == 19 ==> msg_id39
+                    close ==> msg_id11
     end
 
     vhost_user_msg_handler --> _alloc_vring_queue
