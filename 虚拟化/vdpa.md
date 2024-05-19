@@ -214,6 +214,7 @@ graph TD;
                     == 18 ==> msg_id40
                     == 19 ==> msg_id39
                     close ==> msg_id11
+                    == 19 ==>
     end
 
     vhost_user_msg_handler --> _alloc_vring_queue
