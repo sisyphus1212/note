@@ -101,6 +101,7 @@ graph TD;
     subgraph VHOST_USER_SET_MEM_TABLE
         vhost_user_set_mem_table --> vhost_user_mmap_region
     end
+
     subgraph VHOST_USER_GET_VRING_BASE
         vhost_user_get_vring_base --> vhost_destroy_device_notify
                                   --> ysk2_vdpa_close
