@@ -278,6 +278,7 @@ graph TD;
     msg_id39 -. post:19 new_device之后且virtio_is_ready .-o newflags_3
     msg_id39  -. post:19 dev_conf之后且virtio_is_ready .-o newflags_4
     msg_id39 -.-o dev_status
+    msg_id39 -. post:20 .->
 
 ```
 
