@@ -1,15 +1,4 @@
 
----
-title: vdpa代码逻辑
-date: 2023-09-20 10:04:03
-index_img: https://img-en.fs.com/community/upload/wangEditor/202003/24/_1585046553_TZOmBePO8Z.jpg
-categories:
-  - [linux,网络开发,虚拟化开发]
-tags:
- - kernel_network
- - vdpa
----
-
 # vhost.c 代码逻辑
 ## vhost_devices 初始化
 struct virtio_net *vhost_devices[MAX_VHOST_DEVICE];
@@ -81,9 +70,11 @@ graph TD;
     end
 
     subgraph _ysk2_vdpa_config [ysk2_vdpa_config]
+            ysk2_vdpa_config --> ysk2_setup_config_relay
+            ysk2_vdpa_config --> ysk2_dev_start
+            ysk2_vdpa_config --> ysk2_pmd_relay_start
             ysk2_vdpa_config --> ysk2_dma_map
-            --> ysk2_dev_start
-            --> ysk2_pmd_relay_start
+            ysk2_vdpa_config --> ysk2_pmd_relay_start
     end
 
     subgraph VHOST_USER_SET_FEATURES [VHOST_USER_SET_FEATURES]
@@ -116,15 +107,17 @@ graph TD;
     subgraph init_hw [ysk2_init_hw 设备初始化]
         pci_probe_all_drivers --> rte_pci_probe_one_driver
         --> ysk2_pci_probe
-        --> ysk2_init_hw
-            ysk2_init_hw --> rte_eth_dev_create
-                subgraph ethdev_init [ysk2_ethdev_init 初始化]
-                    direction TB
-                    ysk2_mempool_init --hw->tx_mp/rx_mp 在这里初始化--> ysk2_create_mempool
-                end
-                rte_eth_dev_create --> ethdev_init
-                rte_eth_dev_create -- hw->dev_cfg  初始化 -->  ysk2_virtio_dev_cfg_init
-            ysk2_init_hw --> ysk2_dev_configure
+            ysk2_pci_probe --> ysk2_vfio_setup
+                       --> rte_pci_map_device
+            ysk2_pci_probe --> ysk2_init_hw
+                ysk2_init_hw --> rte_eth_dev_create
+                    subgraph ethdev_init [ysk2_ethdev_init 初始化]
+                        direction TB
+                        ysk2_mempool_init --hw->tx_mp/rx_mp 在这里初始化--> ysk2_create_mempool
+                    end
+                    rte_eth_dev_create --> ethdev_init
+                    rte_eth_dev_create -- hw->dev_cfg  初始化 -->  ysk2_virtio_dev_cfg_init
+                ysk2_init_hw --> ysk2_dev_configure
     end
 
     subgraph pmd_relay_start [ysk2_pmd_relay_start pmd 收发包逻辑]
