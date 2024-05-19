@@ -109,6 +109,7 @@ graph TD;
                                   --> ysk2_dev_stop
 
     end
+
     subgraph start [start_vdpa]
     main --> start_vdpa
          --> rte_vhost_driver_start(path='/tmp/vdpa-socket0')
