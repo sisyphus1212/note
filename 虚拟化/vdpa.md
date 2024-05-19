@@ -84,7 +84,6 @@ graph TD;
             ysk2_vdpa_config --> ysk2_dev_start
             ysk2_vdpa_config --> ysk2_pmd_relay_start
             ysk2_vdpa_config --> ysk2_dma_map
-            ysk2_vdpa_config --> ysk2_pmd_relay_start
     end
 
     subgraph VHOST_USER_SET_FEATURES [VHOST_USER_SET_FEATURES]
