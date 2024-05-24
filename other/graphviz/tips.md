@@ -6,3 +6,7 @@ categories:
 tags:
 - graphviz
 ---
+```graphviz
+digraph {
+
+}
