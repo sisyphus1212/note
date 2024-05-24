@@ -9,5 +9,8 @@ tags:
 ```graphviz
 digraph {
   node[shape=rect]
+  gateway -> users
+  gateway -> companies
+  gateway -> groups
 }
 ```
