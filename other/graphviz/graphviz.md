@@ -36,7 +36,7 @@ digraph {
     label="Cluster A";
     node1; node3; node5; node7;
   }
-  subgraph {
+  subgraph b {
     cluster=true;
     label="Cluster B";
     node2; node4; node6; node8;
@@ -45,7 +45,7 @@ digraph {
   node1 -> node2 [label="1"];
   node3 -> node4 [label="2" ltail="cluster_a"];
 
-  node5 -> node6 [label="3" lhead="cluster_b"];
+  node5 -> node6 [label="3" lhead="b"];
   node7 -> node8 [label="4" ltail="cluster_a" lhead="cluster_b"];
 }
 ```
