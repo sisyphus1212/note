@@ -203,15 +203,24 @@ digraph left {
 }
 ```
 ```graphviz
-  digraph left {
-      graph [rankdir="LR", splines=ortho];
-      node [shape=record];
+   digraph h {
+     rankdir=LR;
 
-      l1 [rankjustify=min|label="A\l|B\l"];
-      l2 [label="C\l|short\l"];
-      l3 [label="E\l|long long text\l"];
+     node [shape=record,height=.08,fontsize=11];
 
-      l1 -> l2;
-      l1 -> l3;
-  }
+     elk[label="elk|I am an American Elk"];
+
+     buffalo[label="buffalo|Just a buffalo|everywhere I go|people know the part I'm playing"];
+
+     cow[label="cow|moo"];
+
+     moose[label="Bullwinkle J. Moose|Hey Rocky, watch me pull a rabbit out of my hat!"];
+
+     zoo [label="zoo|<p0>|<p1>|<p2>|<p3>"];
+
+     zoo:p0 -> elk;
+     zoo:p1 -> cow;
+     zoo:p2 -> moose;
+     zoo:p3 -> buffalo;
+   }
 ```
