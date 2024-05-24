@@ -73,3 +73,20 @@ digraph  {
   nodesep=1
 }
 ```
+```graphviz
+digraph Graph {
+  node[shape=rect]
+  splines=ortho
+  gateway[width=3 height=0.3]
+  gateway -> users
+  users -> companies
+  gateway -> companies
+  gateway -> groups
+  nodesep=1
+  {
+    rank=same
+    users
+    companies
+  }
+}
+```
