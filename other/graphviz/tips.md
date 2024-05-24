@@ -203,15 +203,15 @@ digraph left {
 }
 ```
 ```graphviz
-digraph left {
-    graph [rankdir="LR", splines=ortho];
-    node [shape=record];
+  digraph left {
+      graph [rankdir="LR", splines=ortho];
+      node [shape=record];
 
-    l1 [label="A\l|B\l"];
-    l2 [label="C\l|short\l"];
-    l3 [label="E\l|long long text\l"];
+      l1 [label="A\l|B\l"];
+      l2 [label="C\l|short\l"];
+      l3 [label="E\l|long long text\l"];
 
-    l1 -> l2;
-    l1 -> l3;
-}
+      l1 -> l2;
+      l1 -> l3;
+  }
 ```
