@@ -244,6 +244,7 @@ digraph {
   subgraph cluster_c {
     label="c"
     labeljust=c
+    labelloc=c
     b
   }
   subgraph cluster_r {
