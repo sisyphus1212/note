@@ -229,5 +229,8 @@ digraph G {
   a [nojustify=false label="The first line is longer\nnojustify=false\l"]
   b [nojustify=true label="The first line is longer\nnojustify=true\l"]
   a -> b
+  c [nojustify=false shape=record label="{Records Example - Long Line\n | Title - Shorter Line\nnojustify=false\l}"]
+  d [nojustify=true shape=record label="{Records Example - Long Line\n | Title - Shorter Line\nnojustify=true\l}"]
+  c -> d
 }
 ```
