@@ -236,8 +236,8 @@ digraph G {
 ```
 ```graphviz
 digraph {
-  t [labelloc=t]
-  c [labelloc=c]
-  b [labelloc=b]
+  t
+  c
+  b
 }
 ```
