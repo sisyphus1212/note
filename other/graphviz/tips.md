@@ -14,3 +14,6 @@ digraph {
   gateway -> groups
 }
 ```
+  gateway -> users
+  gateway -> companies
+  gateway -> groups
