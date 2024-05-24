@@ -14,5 +14,12 @@ digraph {
   gateway -> groups
 }
 ```
-
-
+```graphviz
+digraph Graph {
+  node[shape=rect]
+  gateway[width=3 height=0.3]
+  gateway -> users
+  gateway -> companies
+  gateway -> groups
+}
+```
