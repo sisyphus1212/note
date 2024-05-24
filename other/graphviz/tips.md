@@ -223,3 +223,11 @@ digraph left {
      zoo:p3 -> buffalo;
    }
 ```
+```graphviz
+digraph G {
+  node [width=3 shape=box]
+  a [nojustify=false label="The first line is longer\nnojustify=false\l"]
+  b [nojustify=true label="The first line is longer\nnojustify=true\l"]
+  a -> b
+}
+```
