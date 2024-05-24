@@ -189,3 +189,25 @@ digraph  {
   nodesep=1
 }
 ```
+```graphviz
+   digraph h {
+     rankdir=LR;
+
+     node [shape=record,height=.08,fontsize=11];
+
+     elk[label="elk|I am an American Elk"];
+
+     buffalo[label="buffalo|Just a buffalo|everywhere I go|people know the part I'm playing"];
+
+     cow[label="cow|moo"];
+
+     moose[label="Bullwinkle J. Moose|Hey Rocky, watch me pull a rabbit out of my hat!"];
+
+     zoo [label="zoo|<p0>|<p1>|<p2>|<p3>"];
+
+     zoo:p0 -> elk;
+     zoo:p1 -> cow;
+     zoo:p2 -> moose;
+     zoo:p3 -> buffalo;
+   }
+```
