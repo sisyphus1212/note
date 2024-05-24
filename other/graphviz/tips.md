@@ -268,7 +268,7 @@ digraph structs2
     struct3 [label="<f0> einz|<f1> swei|<f2> drei"];
 
     //
-    node_1_0 -> node_1_1[ style = invis, weight= 10 ];
+    //node_1_0 -> node_1_1[ style = invis, weight= 10 ];
     //                    ^^^^^^^^^^^^^^^^^^^^^^^^^
 
     hashTable:f1 -> node_1_0:f0;
