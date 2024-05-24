@@ -6,6 +6,14 @@ categories:
 tags:
 - graphviz
 ---
+```sh
+digraph {
+  node[shape=rect]
+  gateway -> users
+  gateway -> companies
+  gateway -> groups
+}
+```
 ```graphviz
 digraph {
   node[shape=rect]
