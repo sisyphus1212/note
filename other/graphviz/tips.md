@@ -67,6 +67,7 @@ digraph Graph {
   splines=ortho
   gateway[width=3 height=0.3]
   gateway -> users
+  users -> companies
   gateway -> companies
   gateway -> groups
   nodesep=1
