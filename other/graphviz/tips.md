@@ -254,3 +254,46 @@ digraph {
   }
 }
 ```
+
+```graphviz
+digraph structs2
+{
+    rankdir = LR;
+    node [shape=record];
+    splines=false;       // optional; gives straight lines
+
+    hashTable [label="<f0>0|<f1>1|<f2>2|<f3>3|<f4>4|<f5>5|<f6>6|<f7>7|<f8>8"];
+    node_1_0 [label="<f0> one|<f1> two |<f2> three" ];
+    node_1_1 [label="<f0> un |<f1> deux|<f2> trois"];
+    struct3 [label="<f0> einz|<f1> swei|<f2> drei"];
+
+    //
+    node_1_0 -> node_1_1[ style = invis, weight= 10 ];
+    //                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    hashTable:f1 -> node_1_0:f0;
+    node_1_0:f2  -> node_1_1:f0;
+    hashTable:f4 -> struct3:f0;
+}
+```
+```graphviz
+digraph structs2
+{
+    rankdir = LR;
+    node [shape=record];
+    splines=false;       // optional; gives straight lines
+
+    hashTable [label="<f0>0|<f1>1|<f2>2|<f3>3|<f4>4|<f5>5|<f6>6|<f7>7|<f8>8"];
+    node_1_0 [label="<f0> one|<f1> two |<f2> three" ];
+    node_1_1 [label="<f0> un |<f1> deux|<f2> trois"];
+    struct3 [label="<f0> einz|<f1> swei|<f2> drei"];
+
+    //
+    node_1_0 -> node_1_1[ style = invis, weight= 10 ];
+    //                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    hashTable:f1 -> node_1_0:f0;
+    node_1_0:f2  -> node_1_1:f0;
+    hashTable:f4 -> struct3:f0;
+}
+```
