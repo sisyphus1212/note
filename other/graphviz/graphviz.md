@@ -46,7 +46,7 @@ digraph {
   node3 -> node4 [label="2" ltail="cluster_a"];
 
   node5 -> node6 [label="3" lhead="b"];
-  node7 -> node8 [label="4" ltail="cluster_a" lhead="cluster_b"];
+  node7 -> node8 [label="4" ltail="cluster_a" lhead="b"];
 }
 ```
 
