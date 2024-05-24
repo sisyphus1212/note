@@ -206,7 +206,7 @@ digraph left {
    digraph h {
      rankdir=LR;
 
-     node [rankjustify=min,shape=record,height=.08,fontsize=11];
+     node [nojustify=false ,shape=record,height=.08,fontsize=11];
      elk[label="elk|I am an American Elk"];
 
      buffalo[label="buffalo|Just a buffalo|everywhere I go|people know the part I'm playing"];
