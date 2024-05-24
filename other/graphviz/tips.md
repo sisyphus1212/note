@@ -212,8 +212,9 @@ digraph left {
      buffalo[label="buffalo|Just a buffalo|everywhere I go|people know the part I'm playing"];
 
      cow[label="cow pp"];
+     k[label="5.migration_iteration_run"]
     migration_thread ->  "4.migrate_set_state";
-    migration_thread ->  k[label="5.migration_iteration_run"];
+    migration_thread ->  k;
      moose[label="Bullwinkle J. Moose|Hey Rocky, watch me pull a rabbit out of my hat!"];
 
      zoo [label="zoo|<p0>|<p1>|<p2>|<p3>"];
