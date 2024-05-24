@@ -38,12 +38,13 @@ digraph {
 
 
 ```graphviz
-digraph {
+digraph Graph {
   node[shape=rect]
   splines=ortho
   gateway[width=3 height=0.3]
   gateway -> users
   gateway -> companies
   gateway -> groups
+  ranksep=1.5
 }
 ```
