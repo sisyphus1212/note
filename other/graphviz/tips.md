@@ -207,7 +207,7 @@ digraph left {
       graph [rankdir="LR", splines=ortho];
       node [shape=record];
 
-      l1 [label="A\l|B\l"];
+      l1 [rankjustify=min, label="A\l|B\l"];
       l2 [label="C\l|short\l"];
       l3 [label="E\l|long long text\l"];
 
