@@ -25,6 +25,16 @@ digraph {
 }
 ```
 
+```sh
+digraph {
+  node[shape=rect]
+  splines=ortho
+  gateway[width=3 height=0.3]
+  gateway -> users
+  gateway -> companies
+  gateway -> groups
+}
+```
 ```graphviz
 digraph {
   node[shape=rect]
