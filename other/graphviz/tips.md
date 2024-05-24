@@ -9,6 +9,5 @@ tags:
 ```graphviz
 digraph Graph {
   node[shape=rect]
-
 }
 ```
