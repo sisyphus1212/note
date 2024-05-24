@@ -236,11 +236,20 @@ digraph G {
 ```
 ```graphviz
 digraph {
-  labelloc="c"
-  label="Title"
-  a -> b
-  t [labelloc=t]
-  c [labelloc=c]
-  b [labelloc=t]
+  subgraph cluster_l {
+    label="l"
+    labeljust=l
+    a
+  }
+  subgraph cluster_c {
+    label="c"
+    labeljust=c
+    b
+  }
+  subgraph cluster_r {
+    label="r"
+    labeljust=r
+    c
+  }
 }
 ```
