@@ -7,7 +7,7 @@ tags:
 - graphviz
 ---
 ```graphviz
-digraph Graph {
+digraph {
   node[shape=rect]
 }
 ```
