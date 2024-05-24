@@ -14,7 +14,7 @@ digraph {
   gateway -> groups
 }
 ```
-```graphviz
+```sh
 digraph {
   node[shape=rect]
   gateway[width=3 height=0.3]
