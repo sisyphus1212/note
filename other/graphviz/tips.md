@@ -211,7 +211,7 @@ digraph left {
 
      buffalo[label="buffalo|Just a buffalo|everywhere I go|people know the part I'm playing"];
 
-     cow[label="cow|moo"];
+     cow[label="cow"];
 
      moose[label="Bullwinkle J. Moose|Hey Rocky, watch me pull a rabbit out of my hat!"];
 
