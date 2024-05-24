@@ -213,9 +213,8 @@ digraph  {
 ```
 ```graphviz
    digraph h {
-      node[rankjustify=min]
      rankdir=LR;
-
+    node[rankjustify=min]
      node [shape=record,height=.08,fontsize=11];
 
      elk[label="elk|I am an American Elk"];
