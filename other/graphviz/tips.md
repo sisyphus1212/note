@@ -48,3 +48,14 @@ digraph {
   ranksep=1.5
 }
 ```
+```graphviz
+digraph Graph {
+  node[shape=rect]
+  splines=ortho
+  gateway[width=3 height=0.3]
+  gateway -> users
+  gateway -> companies
+  gateway -> groups
+  nodesep=1
+}
+```
