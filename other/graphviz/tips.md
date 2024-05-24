@@ -50,7 +50,7 @@ digraph {
 ```
 
 ```graphviz
-digraph Graph {
+digraph  {
   node[shape=rect]
   splines=ortho
   gateway[width=3 height=0.3]
@@ -62,7 +62,7 @@ digraph Graph {
 ```
 
 ```graphviz
-digraph Graph {
+digraph  {
   node[shape=rect]
   splines=ortho
   gateway[width=3 height=0.3]
