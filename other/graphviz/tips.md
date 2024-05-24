@@ -213,6 +213,7 @@ digraph  {
 ```
 ```graphviz
    digraph h {
+      node[rankjustify=min]
      rankdir=LR;
 
      node [shape=record,height=.08,fontsize=11];
