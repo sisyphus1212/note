@@ -234,3 +234,10 @@ digraph G {
   c -> d
 }
 ```
+```graphviz
+digraph {
+  t [labelloc=t]
+  c [labelloc=c]
+  b [labelloc=b]
+}
+```
