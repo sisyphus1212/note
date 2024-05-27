@@ -1,3 +1,4 @@
 MemoryRegionSection
 MemoryListener
 KVMSlot
+kvm_dirty_log
