@@ -1,2 +1,3 @@
 MemoryRegionSection
 MemoryListener
+KVMSlot
