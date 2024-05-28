@@ -5,3 +5,5 @@ qemu_init -> qmp_x_exit_preconfig -> qemu_init_board // 初始化cpu 内存
 vhost_dev_init
 
 net_vhost_user_event
+
+vhost_user_one_time_request
