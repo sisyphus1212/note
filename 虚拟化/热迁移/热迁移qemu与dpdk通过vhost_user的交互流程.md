@@ -1,5 +1,5 @@
 ---
-title: 设备热迁移
+title: 热迁移qemu与dpdk通过vhost_user的交互流程
 date: 2024-04-20 10:04:03
 index_img: https://img-en.fs.com/community/upload/wangEditor/202003/24/_1585046553_TZOmBePO8Z.jpg
 categories:
