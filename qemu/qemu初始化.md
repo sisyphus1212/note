@@ -49,6 +49,7 @@ digraph {
                       -> qemu_chr_new_from_opts
                       -> qemu_chardev_new
                       -> chardev_new
+                      -> qemu_char_open
                       ->
 
     qemu_init -> qmp_x_exit_preconfig -> qemu_init_board // 初始化cpu 内存
