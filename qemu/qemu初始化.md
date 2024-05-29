@@ -20,7 +20,6 @@ digraph {
     subgraph  {
         cluster=true
         fd  [style = invis]
-        b2 -> b0  [constraint=false]
     }
 
 
