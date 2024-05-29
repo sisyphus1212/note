@@ -16,6 +16,13 @@ typedef enum {
 #define type_init(function) module_init(function, MODULE_INIT_QOM)
 #define trace_init(function) module_init(function, MODULE_INIT_TRACE)
 
+QOM是QEMU在C的基础上自己实现的一套面向对象机制，负责将device、bus等设备都抽象成为对象。对象的初始化分为四步：
+
+将 TypeInfo 注册为 TypeImpl
+实例化 ObjectClass
+实例化 Object
+添加 Property
+
 ```graphviz
 digraph {
 
