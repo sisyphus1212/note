@@ -44,8 +44,8 @@ digraph {
                         -> vhost_dev_init
                         -> vhost_virtqueue_init
                         -> vhost_user_set_vring_call
-    qemu_init -> qemu_create_early_backends ->
-    qemu_opts_foreach -> chardev_init_func [label="等待slave连接"]
+    qemu_init -> qemu_create_early_backends[label="等待slave连接"] qemu_create_early_backends->
+    qemu_opts_foreach -> chardev_init_func
     chardev_init_func -> qemu_chr_new_from_opts
                       -> qemu_chardev_new
                       -> chardev_new
