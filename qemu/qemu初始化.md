@@ -17,6 +17,11 @@ digraph {
     node [fontsize=10, shape=record, height=0.25]
     edge [fontsize=10]
 
+    subgraph  {
+        cluster=true
+        fd  [style = invis]
+        b2 -> b0  [constraint=false]
+    }
 
 
     qemu_init -> qemu_create_late_backends
