@@ -28,6 +28,7 @@ digraph {
               -> qemu_chr_fe_wait_connected
               -> vhost_dev_init
     net_vhost_user_init -> qemu_chr_fe_set_handlers
+                        -> qemu_chr_fe_set_handlers_full
 
 
     qemu_init -> qmp_x_exit_preconfig -> qemu_init_board // 初始化cpu 内存
