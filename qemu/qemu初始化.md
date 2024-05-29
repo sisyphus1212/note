@@ -51,6 +51,7 @@ digraph {
                       -> chardev_new
                       -> qemu_char_open
                       -> qmp_chardev_open_socket
+                      -> qmp_chardev_open_socket_server
                       ->
 
     qemu_init -> qmp_x_exit_preconfig -> qemu_init_board // 初始化cpu 内存
