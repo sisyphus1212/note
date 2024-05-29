@@ -20,5 +20,6 @@ typedef enum {
 digraph {
 
 device -> type
+       -> instance
        ->
 }
