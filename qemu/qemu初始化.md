@@ -53,7 +53,8 @@ digraph {
                       -> qmp_chardev_open_socket
                       -> qmp_chardev_open_socket_server
                       -> tcp_chr_accept_server_sync
-                      ->
+                      -> qio_net_listener_wait_client
+
     qemu_init -> qmp_x_exit_preconfig -> qemu_init_board // 初始化cpu 内存
 
     vhost_dev_init
