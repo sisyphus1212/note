@@ -35,6 +35,7 @@ digraph {
                         -> vhost_user_start
                         -> vhost_net_init
                         -> vhost_dev_init
+                        ->
 
 
     qemu_init -> qmp_x_exit_preconfig -> qemu_init_board // 初始化cpu 内存
