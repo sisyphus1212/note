@@ -32,6 +32,7 @@ digraph {
                         -> qemu_chr_be_event
                         -> chr_be_event
                         -> net_vhost_user_event
+                        -> vhost_user_start
 
 
     qemu_init -> qmp_x_exit_preconfig -> qemu_init_board // 初始化cpu 内存
