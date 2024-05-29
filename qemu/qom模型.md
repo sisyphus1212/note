@@ -30,7 +30,8 @@ device -> type
 device -> instance
 device -> class
 
-type ->
+type -> type_new
+
 ModuleEntry ->
 
 }
