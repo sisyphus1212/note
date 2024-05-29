@@ -97,7 +97,8 @@ digraph {
   a -> a [label="AA" decorate=true]
   a -> b [label="AB" decorate=true]
   b -> d [label="BB" decorate=false]
-  -> g -> c
+    -> g
+    -> c
     -> f
 
 }
