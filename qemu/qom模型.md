@@ -19,5 +19,6 @@ typedef enum {
 ```graphviz
 digraph {
 
-device ->
+device -> type
+       ->
 }
