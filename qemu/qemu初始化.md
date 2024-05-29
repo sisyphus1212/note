@@ -1,3 +1,14 @@
+---
+title: 内存热迁移
+date: 2024-04-20 10:04:03
+index_img: https://img-en.fs.com/community/upload/wangEditor/202003/24/_1585046553_TZOmBePO8Z.jpg
+categories:
+  - [linux,网络开发,虚拟化开发]
+tags:
+ - kernel_network
+ - vdpa
+---
+
 qemu_init -> qemu_create_late_backends -> net_init_clients -> qemu_opts_foreach -> net_init_netdev -> net_client_init1 -> net_client_init_fun[netdev->type](netdev, netdev->id, peer, errp) -> net_init_vhost_user -> net_vhost_user_init -> qemu_chr_fe_wait_connected -> vhost_dev_init
 
 qemu_init -> qmp_x_exit_preconfig -> qemu_init_board // 初始化cpu 内存
