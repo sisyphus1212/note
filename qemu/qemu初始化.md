@@ -46,7 +46,7 @@ digraph {
                         -> vhost_user_set_vring_call
 
     qemu_opts_foreach -> chardev_init_func [label="AA" decorate=true]
-                      -> qemu_chr_new_from_opts
+    chardev_init_func -> qemu_chr_new_from_opts
                       -> qemu_chardev_new
                       -> chardev_new
                       -> qemu_char_open
