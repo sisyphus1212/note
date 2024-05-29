@@ -16,5 +16,8 @@ typedef enum {
 #define type_init(function) module_init(function, MODULE_INIT_QOM)
 #define trace_init(function) module_init(function, MODULE_INIT_TRACE)
 
+```graphviz
+digraph {
 
-device
+device ->
+}
