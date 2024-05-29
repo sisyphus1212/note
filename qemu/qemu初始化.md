@@ -45,7 +45,7 @@ digraph {
                         -> vhost_virtqueue_init
                         -> vhost_user_set_vring_call
     s[label="5.migration_iteration_run"]
-    qemu_opts_foreach -> chardev_init_funcs[label="5.migration_iteration_run"]
+    qemu_opts_foreach -> chardev_init_func
                       -> qemu_chr_new_from_opts
                       -> qemu_chardev_new
                       -> chardev_new
