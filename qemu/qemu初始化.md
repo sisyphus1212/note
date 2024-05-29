@@ -18,7 +18,7 @@ digraph {
     edge [fontsize=10]
 
     qemu_init -> qemu_create_late_backends -> net_init_clients -> qemu_opts_foreach -> net_init_netdev -> net_client_init1 //
-    //-> net_client_init_fun[netdev->type](netdev, netdev->id, peer, errp) -> net_init_vhost_user -> net_vhost_user_init -> qemu_chr_fe_wait_connected -> vhost_dev_init
+    // -> net_client_init_fun[netdev->type](netdev, netdev->id, peer, errp) -> net_init_vhost_user -> net_vhost_user_init -> qemu_chr_fe_wait_connected -> vhost_dev_init
 }
 ```
 
