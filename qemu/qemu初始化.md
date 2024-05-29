@@ -46,7 +46,7 @@ digraph {
                         -> vhost_user_set_vring_call
 
     qemu_init -> qemu_create_early_backends[label="创建chardev 并等待连接"] qemu_create_early_backends -> qemu_opts_foreach
-     -> chardev_init_func
+                      -> chardev_init_func
                       -> qemu_chr_new_from_opts
                       -> qemu_chardev_new
                       -> chardev_new
