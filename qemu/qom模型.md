@@ -21,5 +21,5 @@ digraph {
 
 device -> type
        -> instance
-       ->
+       -> class
 }
