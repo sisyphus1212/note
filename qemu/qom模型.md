@@ -1,0 +1,1 @@
+![alt text](../../medias/images_0/qom模型_image.png)
