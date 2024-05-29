@@ -37,4 +37,4 @@ ModuleEntry ->
 }
 
 
-net_vhost_user_init ->
+net_vhost_user_init -> qemu_chr_fe_init 关联vhost user 与 chrdev
