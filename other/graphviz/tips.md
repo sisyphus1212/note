@@ -303,8 +303,8 @@ digraph structs2
 ```
 ```graphviz
 digraph {
-  root -> a [weight=2]
-  root -> b
+  root -> a
+  root -> b [weight=210]
   root -> c [weight=3]
 }
 ```
