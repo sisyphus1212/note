@@ -68,7 +68,7 @@ digraph {
                              -> vhost_dev_init
                              -> vhost_virtqueue_init
                              -> vhost_user_set_vring_call
-        vhost_net_init ->
+        //vhost_net_init ->
     }
 
     subgraph vdpa_restart {
