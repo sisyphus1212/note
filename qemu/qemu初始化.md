@@ -42,17 +42,17 @@ digraph {
     }
     subgraph chardev_init {
         label="chardev 初始化";
-    qemu_init -> qemu_create_early_backends[label="创建chardev 并等待连接"] qemu_create_early_backends -> qemu_opts_foreach
-                      -> chardev_init_func
-                      -> qemu_chr_new_from_opts
-                      -> qemu_chardev_new
-                      -> chardev_new
-                      -> qemu_char_open
-                      -> qmp_chardev_open_socket
-                      -> qmp_chardev_open_socket_server
-                      -> tcp_chr_accept_server_sync
-                      -> qio_net_listener_wait_client
-                      -> g_main_loop_run
+        qemu_init -> qemu_create_early_backends[label="创建chardev 并等待连接"] qemu_create_early_backends -> qemu_opts_foreach
+                        -> chardev_init_func
+                        -> qemu_chr_new_from_opts
+                        -> qemu_chardev_new
+                        -> chardev_new
+                        -> qemu_char_open
+                        -> qmp_chardev_open_socket
+                        -> qmp_chardev_open_socket_server
+                        -> tcp_chr_accept_server_sync
+                        -> qio_net_listener_wait_client
+                        -> g_main_loop_run
     }
     net_vhost_user_init -> qemu_chr_fe_set_handlers
                         -> qemu_chr_fe_set_handlers_full
