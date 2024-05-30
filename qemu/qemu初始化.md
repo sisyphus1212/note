@@ -61,6 +61,14 @@ digraph {
     subgraph vhost_user_init {
         label="qemu vhost_user 初始化";
         cluster=true;
+    net_vhost_user_init -> qemu_chr_fe_set_handlers
+                        -> qemu_chr_fe_set_handlers_full
+                        -> qemu_chr_be_event
+                        -> chr_be_event
+                        -> net_vhost_user_event
+
+
+    net_vhost_user_init -> qemu_chr_fe_init[label="关联vhost user 与 chrdev"]
     }
 
     subgraph vhost_user_negotiation {
@@ -72,15 +80,6 @@ digraph {
                              -> vhost_virtqueue_init
                              -> vhost_user_set_vring_call
     }
-
-    net_vhost_user_init -> qemu_chr_fe_set_handlers
-                        -> qemu_chr_fe_set_handlers_full
-                        -> qemu_chr_be_event
-                        -> chr_be_event
-                        -> net_vhost_user_event
-
-
-    net_vhost_user_init -> qemu_chr_fe_init[label="关联vhost user 与 chrdev"]
 
     qemu_init -> qmp_x_exit_preconfig -> qemu_init_board // 初始化cpu 内存
 
