@@ -67,11 +67,9 @@ digraph {
     subgraph vhost_user_negotiation {
         label="vhost_user 协商";
         cluster=true;
-        net_vhost_user_event -> vhost_user_start
-                             -> vhost_net_init
-                             -> vhost_dev_init
-                             -> vhost_virtqueue_init
-                             -> vhost_user_set_vring_call
+        vhost_dev_init
+        -> vhost_virtqueue_init
+        -> vhost_user_set_vring_call
         //vhost_net_init ->
     }
 
