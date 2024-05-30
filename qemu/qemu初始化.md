@@ -41,7 +41,7 @@ subgraph netdev_init {
     net_vhost_user_init -> qemu_chr_fe_wait_connected[label="vdpa 重启逻辑"]
                            qemu_chr_fe_wait_connected
                         -> vhost_dev_init
-
+}
     subgraph netdev_init {
         label="netdev 初始化";
         cluster=true;
