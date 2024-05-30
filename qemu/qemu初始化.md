@@ -68,9 +68,9 @@ digraph {
         label="vhost_user 协商";
         cluster=true;
         vhost_dev_init -> vhost_backend_init[label="1"]
-        vhost_dev_init -> vhost_set_owner
-        vhost_dev_init -> vhost_get_features
-        vhost_dev_init -> vhost_virtqueue_init
+        vhost_dev_init -> vhost_set_owner[label="2"]
+        vhost_dev_init -> vhost_get_features[label="3"]
+        vhost_dev_init -> vhost_virtqueue_init[label="4"]
                        -> vhost_user_set_vring_call
         //vhost_net_init ->
     }
