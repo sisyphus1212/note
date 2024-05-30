@@ -95,7 +95,7 @@ digraph {
     qemu_init -> qmp_x_exit_preconfig
               -> qemu_create_cli_devices
               -> qemu_opts_foreach
-              ->
+              -> device_init_func
     qemu_init -> qmp_x_exit_preconfig
               -> qemu_init_board[label="初始化cpu内存"]
 
