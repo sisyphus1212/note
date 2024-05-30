@@ -72,6 +72,22 @@ digraph {
                             -> vhost_dev_init
     }
 
+    qemu_init -> qemu_create_early_backends[label="创建chardev 并等待连接"]
+                 qemu_create_early_backends
+              -> qemu_opts_foreach
+              -> chardev_init_func
+
+    qemu_init -> qemu_create_late_backends
+              -> net_init_clients
+              -> qemu_opts_foreach
+              -> net_init_netdev
+              -> net_client_init1
+              -> net_client_init_fun
+              -> net_init_vhost_user
+
+    qemu_init -> qmp_x_exit_preconfig
+              -> qemu_init_board[label="初始化cpu内存"]
+
     vhost_dev_init
 
     net_vhost_user_event
