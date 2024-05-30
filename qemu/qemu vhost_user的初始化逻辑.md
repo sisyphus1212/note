@@ -18,7 +18,7 @@ fontname="Helvetica,Arial,sans-serif"
 //rankdir="LR"
 node [fontsize=10, shape=record, height=0.25]
 edge [fontsize=10]
-  subgraph send {
+  subgraph netdev_init {
     cluster=true;
     qemu_init -> qemu_create_late_backends
               -> net_init_clients
