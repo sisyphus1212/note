@@ -38,13 +38,6 @@ digraph {
     qemu_init -> qmp_x_exit_preconfig
               -> qemu_init_board[label="初始化cpu内存"]
 
-    subgraph vdpa_restart {
-        label="vdpa_重启";
-        cluster=true;
-        net_vhost_user_init -> qemu_chr_fe_wait_connected[label="vdpa 重启逻辑"]
-                               qemu_chr_fe_wait_connected
-                            -> vhost_dev_init
-    }
 
     subgraph netdev_init {
         label="netdev 初始化";
@@ -92,7 +85,13 @@ digraph {
                              -> vhost_virtqueue_init
                              -> vhost_user_set_vring_call
     }
-
+    subgraph vdpa_restart {
+        label="vdpa_重启";
+        cluster=true;
+        net_vhost_user_init -> qemu_chr_fe_wait_connected[label="vdpa 重启逻辑"]
+                               qemu_chr_fe_wait_connected
+                            -> vhost_dev_init
+    }
     vhost_dev_init
 
     net_vhost_user_event
