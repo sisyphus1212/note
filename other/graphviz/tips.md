@@ -301,4 +301,13 @@ digraph structs2
     hashTable:f4 -> struct3:f0;
 }
 ```
+```graphviz
+digraph weighted {
+    a [weight = 5];
+    b [weight = 2];
+    c [weight = 12];
+    d [weight = 7];
 
+    a -> b -> c -> d;
+}
+```
