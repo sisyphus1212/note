@@ -305,6 +305,6 @@ digraph structs2
 digraph {
   root -> a
   root -> b [weight=2]
-  root -> c [weight=3]
+  root -> c [weight=11]
 }
 ```
