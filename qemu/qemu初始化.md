@@ -40,8 +40,8 @@ digraph {
             -> g_main_loop_run
     }
 
-    subgraph netdev_init {
-        label="netdev 初始化";
+    subgraph virtio_net_init {
+        label="virtio_net设备 初始化";
         cluster=true;
         net_init_netdev
         -> net_client_init
