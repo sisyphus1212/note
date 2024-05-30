@@ -21,6 +21,7 @@ digraph {
         cluster=true
         fd  [style = invis]
     }
+
     qemu_init -> qemu_create_early_backends[label="创建chardev 并等待连接"]
                  qemu_create_early_backends
               -> qemu_opts_foreach
