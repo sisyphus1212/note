@@ -12,6 +12,6 @@ tags:
 
 ```graphviz
 digraph {
-
+qemu_init ->
 }
 ```
