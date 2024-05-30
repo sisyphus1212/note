@@ -42,7 +42,7 @@ digraph {
         -> visit_type_Netdev
     }
     subgraph netdev_init {
-        label="netdev 初始化";
+        label="char 初始化";
     }
     net_vhost_user_init -> qemu_chr_fe_set_handlers
                         -> qemu_chr_fe_set_handlers_full
