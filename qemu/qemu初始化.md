@@ -35,7 +35,7 @@ digraph {
                  qemu_create_early_backends -> qemu_opts_foreach
                                             -> chardev_init_func
 
-              net_vhost_user_init -> qemu_chr_fe_wait_connected[label="vdpa 重启逻辑"]
+    net_vhost_user_init -> qemu_chr_fe_wait_connected[label="vdpa 重启逻辑"]
               qemu_chr_fe_wait_connected
               -> vhost_dev_init
 
