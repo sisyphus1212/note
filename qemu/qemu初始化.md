@@ -22,7 +22,6 @@ digraph {
         fd  [style = invis]
     }
 
-
     qemu_init -> qemu_create_late_backends
               -> net_init_clients
               -> qemu_opts_foreach
