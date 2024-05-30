@@ -19,7 +19,7 @@ fontname="Helvetica,Arial,sans-serif"
 node [fontsize=10, shape=record, height=0.25]
 edge [fontsize=10]
   subgraph netdev_init {
-    label="netdev_init";
+    label="netdev 初始化";
     cluster=true;
     qemu_init -> qemu_create_late_backends
               -> net_init_clients
