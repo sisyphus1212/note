@@ -17,11 +17,6 @@ digraph {
     node [fontsize=10, shape=record, height=0.25]
     edge [fontsize=10]
 
-    subgraph  {
-        cluster=true
-        fd  [style = invis]
-    }
-
     qemu_init -> qemu_create_early_backends[label="创建chardev 并等待连接"]
                  qemu_create_early_backends
               -> qemu_opts_foreach
