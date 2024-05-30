@@ -34,7 +34,8 @@ digraph {
               -> net_client_init1
               -> net_client_init_fun
               -> net_init_vhost_user
-
+    qemu_init -> qmp_x_exit_preconfig
+              -> qemu_init_board[label="初始化cpu内存"]
     net_vhost_user_init -> qemu_chr_fe_wait_connected[label="vdpa 重启逻辑"]
                            qemu_chr_fe_wait_connected
                         -> vhost_dev_init
@@ -85,9 +86,6 @@ digraph {
                              -> vhost_virtqueue_init
                              -> vhost_user_set_vring_call
     }
-
-    qemu_init -> qmp_x_exit_preconfig
-              -> qemu_init_board[label="初始化cpu内存"]
 
     vhost_dev_init
 
