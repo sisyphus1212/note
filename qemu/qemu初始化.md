@@ -92,6 +92,7 @@ digraph {
                                qemu_chr_fe_wait_connected
                             -> vhost_dev_init
     }
+
     vhost_dev_init
 
     net_vhost_user_event
