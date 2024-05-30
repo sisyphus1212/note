@@ -43,7 +43,6 @@ digraph {
     subgraph virtio_net_init {
         label="virtio_net设备初始化";
         cluster=true;
-        object_new ->
         virtio_net_pci_instance_init
     }
 
@@ -100,6 +99,8 @@ digraph {
               -> qdev_device_add_from_qdict
               -> qdev_new
               -> object_new
+                 object_new
+              -> virtio_net_pci_instance_init
 
     qmp_x_exit_preconfig
               -> qemu_init_board[label="初始化cpu内存"]
