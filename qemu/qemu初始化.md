@@ -30,10 +30,10 @@ digraph {
               -> net_client_init_fun
               -> net_init_vhost_user
 
-
     qemu_init -> qemu_create_early_backends[label="创建chardev 并等待连接"]
-                 qemu_create_early_backends -> qemu_opts_foreach
-                                            -> chardev_init_func
+                 qemu_create_early_backends
+              -> qemu_opts_foreach
+              -> chardev_init_func
 
     net_vhost_user_init -> qemu_chr_fe_wait_connected[label="vdpa 重启逻辑"]
               qemu_chr_fe_wait_connected
