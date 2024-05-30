@@ -43,7 +43,7 @@ digraph {
     subgraph virtio_net_init {
         label="virtio_net设备初始化";
         cluster=true;
-        net_init_netdev
+        virtio_net_pci_instance_init
         -> net_client_init
         -> visit_type_Netdev
     }
