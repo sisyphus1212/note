@@ -60,8 +60,7 @@ digraph {
     subgraph netdev_init {
         label="netdev 初始化";
         cluster=true;
-        qemu_opts_foreach
-        -> net_init_netdev
+        net_init_netdev
         -> net_client_init
         -> visit_type_Netdev
     }
