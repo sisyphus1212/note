@@ -59,7 +59,7 @@ digraph {
                         -> g_main_loop_run
     }
 
-    subgraph netdev_init {
+    subgraph vhost_user_init {
         label="netdev 初始化";
     }
     net_vhost_user_init -> qemu_chr_fe_set_handlers
