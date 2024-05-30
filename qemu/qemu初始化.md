@@ -41,6 +41,7 @@ digraph {
         -> net_client_init
         -> visit_type_Netdev
     }
+
     net_vhost_user_init -> qemu_chr_fe_set_handlers
                         -> qemu_chr_fe_set_handlers_full
                         -> qemu_chr_be_event
