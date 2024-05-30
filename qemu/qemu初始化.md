@@ -56,7 +56,16 @@ digraph {
                       -> tcp_chr_accept_server_sync
                       -> qio_net_listener_wait_client
                       -> g_main_loop_run
-
+  subgraph netdev_init {
+    label="netdev 初始化";
+    cluster=true;
+    qemu_init -> qemu_create_late_backends
+              -> net_init_clients
+              -> qemu_opts_foreach
+              -> net_init_netdev
+              -> net_client_init
+              -> visit_type_Netdev
+  }
     qemu_init -> qmp_x_exit_preconfig -> qemu_init_board // 初始化cpu 内存
 
     vhost_dev_init
