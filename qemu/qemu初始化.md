@@ -43,6 +43,7 @@ digraph {
         -> net_client_init
         -> visit_type_Netdev
     }
+
     subgraph chardev_init {
         label="chardev 初始化";
         cluster=true;
