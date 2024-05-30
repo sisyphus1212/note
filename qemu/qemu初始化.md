@@ -58,6 +58,7 @@ digraph {
             -> qio_net_listener_wait_client
             -> g_main_loop_run
     }
+
     subgraph vhost_user_init {
         label="qemu vhost_user 初始化";
         cluster=true;
