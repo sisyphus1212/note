@@ -92,6 +92,7 @@ digraph {
               -> net_client_init1
               -> net_client_init_fun
               -> net_init_vhost_user
+
     qemu_init -> qmp_x_exit_preconfig
               -> qemu_create_cli_devices
               -> qemu_opts_foreach
