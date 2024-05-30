@@ -40,6 +40,7 @@ digraph {
 
     subgraph vdpa_restart {
         label="vdpa_重启";
+        cluster=true;
         net_vhost_user_init -> qemu_chr_fe_wait_connected[label="vdpa 重启逻辑"]
                             qemu_chr_fe_wait_connected
                             -> vhost_dev_init
