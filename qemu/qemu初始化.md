@@ -57,7 +57,7 @@ digraph {
                             -> net_vhost_user_event
                             -> vhost_user_start
                             -> vhost_net_init
-                            -> vhost_dev_init[weight=10]
+                            -> vhost_dev_init[weight=50]
                                vhost_dev_init
                             -> vhost_set_backend_type[label="根据backend_type设置vhost_ops为user_ops"]
 
