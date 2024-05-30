@@ -38,7 +38,7 @@ digraph {
     qemu_init -> qmp_x_exit_preconfig
               -> qemu_init_board[label="初始化cpu内存"]
 
-    subgraph vdpa_restartt {
+    subgraph vdpa_restart {
         net_vhost_user_init -> qemu_chr_fe_wait_connected[label="vdpa 重启逻辑"]
                             qemu_chr_fe_wait_connected
                             -> vhost_dev_init
