@@ -68,6 +68,7 @@ digraph {
         label="vhost_user 协商";
         cluster=true;
         vhost_dev_init
+            -> vhost_backend_init
             -> vhost_virtqueue_init
             -> vhost_user_set_vring_call
         //vhost_net_init ->
