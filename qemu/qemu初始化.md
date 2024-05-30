@@ -90,7 +90,7 @@ digraph {
 
     //vhost_dev_init
 
-    ///net_vhost_user_event
+    //net_vhost_user_event
 
     vhost_user_one_time_request
 }
