@@ -39,7 +39,13 @@ digraph {
             -> qio_net_listener_wait_client
             -> g_main_loop_run
     }
-
+    subgraph netdev_init {
+        label="netdev 初始化";
+        cluster=true;
+        net_init_netdev
+        -> net_client_init
+        -> visit_type_Netdev
+    }
     subgraph vhost_user_init {
         label="qemu vhost_user 初始化";
         cluster=true;
