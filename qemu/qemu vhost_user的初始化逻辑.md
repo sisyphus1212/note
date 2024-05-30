@@ -12,4 +12,4 @@ tags:
 
 ```graphviz
 digraph {
-  ｝
+}
