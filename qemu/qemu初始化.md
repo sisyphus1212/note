@@ -39,6 +39,7 @@ digraph {
             -> qio_net_listener_wait_client
             -> g_main_loop_run
     }
+
     subgraph netdev_init {
         label="netdev 初始化";
         cluster=true;
