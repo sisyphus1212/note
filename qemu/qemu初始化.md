@@ -31,7 +31,6 @@ digraph {
               -> net_init_vhost_user
               -> net_vhost_user_init
               net_vhost_user_init -> qemu_chr_fe_wait_connected[label="vdpa 重启逻辑"]
-
               qemu_chr_fe_wait_connected
               -> vhost_dev_init
     qemu_init -> qemu_create_early_backends[label="创建chardev 并等待连接"]
@@ -64,7 +63,7 @@ digraph {
     subgraph vhost_user_init {
         label="qemu vhost_user 初始化";
         cluster=true;
-        net_vhost_user_init -> qemu_chr_fe_set_handlers
+        net_init_vhost_user->net_vhost_user_init -> qemu_chr_fe_set_handlers
                             -> qemu_chr_fe_set_handlers_full
                             -> qemu_chr_be_event
                             -> chr_be_event
