@@ -302,12 +302,9 @@ digraph structs2
 }
 ```
 ```graphviz
-digraph weighted {
-    a [weight = 5];
-    b [weight = 2];
-    c [weight = 123];
-    d [weight = 7];
-
-    a -> b -> c -> d;
+digraph {
+  root -> a
+  root -> b [weight=2]
+  root -> c [weight=3]
 }
 ```
