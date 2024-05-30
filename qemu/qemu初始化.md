@@ -25,6 +25,7 @@ digraph {
                  qemu_create_early_backends
               -> qemu_opts_foreach
               -> chardev_init_func
+
     qemu_init -> qemu_create_late_backends
               -> net_init_clients
               -> qemu_opts_foreach
