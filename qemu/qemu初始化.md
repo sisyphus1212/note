@@ -59,7 +59,8 @@ digraph {
             -> g_main_loop_run
     }
     subgraph vhost_user_init {
-
+        label="vhost_user 协商";
+        cluster=true;
     }
     subgraph vhost_user_negotiation {
         label="vhost_user 协商";
