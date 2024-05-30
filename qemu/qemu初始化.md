@@ -33,7 +33,13 @@ digraph {
               -> net_vhost_user_init
               -> qemu_chr_fe_wait_connected
               -> vhost_dev_init
-
+    subgraph netdev_init {
+        label="netdev 初始化";
+        cluster=true;
+        net_init_netdev
+        -> net_client_init
+        -> visit_type_Netdev
+    }
     net_vhost_user_init -> qemu_chr_fe_set_handlers
                         -> qemu_chr_fe_set_handlers_full
                         -> qemu_chr_be_event
@@ -44,14 +50,8 @@ digraph {
                         -> vhost_dev_init
                         -> vhost_virtqueue_init
                         -> vhost_user_set_vring_call
+net_vhost_user_init -> qemu_chr_fe_init 关联vhost user 与 chrdev
 
-    subgraph netdev_init {
-        label="netdev 初始化";
-        cluster=true;
-        net_init_netdev
-        -> net_client_init
-        -> visit_type_Netdev
-    }
 
     qemu_init -> qemu_create_early_backends[label="创建chardev 并等待连接"] qemu_create_early_backends -> qemu_opts_foreach
                       -> chardev_init_func
