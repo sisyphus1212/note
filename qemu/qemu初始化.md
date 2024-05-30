@@ -88,7 +88,7 @@ digraph {
     qemu_init -> qmp_x_exit_preconfig
               -> qemu_init_board[label="初始化cpu内存"]
 
-    vhost_dev_init
+    //vhost_dev_init
 
     net_vhost_user_event
 
