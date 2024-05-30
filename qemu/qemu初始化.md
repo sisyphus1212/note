@@ -99,7 +99,7 @@ digraph {
               -> qdev_device_add
               -> qdev_device_add_from_qdict
               -> qdev_new
-              ->
+              -> object_new
     qemu_init -> qmp_x_exit_preconfig
               -> qemu_init_board[label="初始化cpu内存"]
 
