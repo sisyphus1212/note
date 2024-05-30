@@ -34,6 +34,7 @@ digraph {
               -> net_client_init1
               -> net_client_init_fun
               -> net_init_vhost_user
+
     qemu_init -> qmp_x_exit_preconfig
               -> qemu_init_board[label="初始化cpu内存"]
 
