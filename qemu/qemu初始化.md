@@ -67,7 +67,7 @@ digraph {
     subgraph vhost_user_negotiation {
         label="vhost_user 协商";
         cluster=true;
-        vhost_dev_init -> vhost_backend_init
+        vhost_dev_init -> vhost_backend_init[label="1"]
         vhost_dev_init -> vhost_set_owner
         vhost_dev_init -> vhost_get_features
         vhost_dev_init -> vhost_virtqueue_init
