@@ -59,7 +59,7 @@ digraph {
             -> g_main_loop_run
     }
     subgraph vhost_user_init {
-        label="vhost_user 协商";
+        label="qemu vhost_user 初始化";
         cluster=true;
     }
 
