@@ -58,6 +58,7 @@ digraph {
                             -> vhost_user_start
                             -> vhost_net_init
                             -> vhost_dev_init
+                            ->
 
 
         net_vhost_user_init -> qemu_chr_fe_init[label="关联vhost user 与 chrdev"]
