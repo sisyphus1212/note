@@ -44,6 +44,7 @@ digraph {
                         -> vhost_dev_init
                         -> vhost_virtqueue_init
                         -> vhost_user_set_vring_call
+
     subgraph netdev_init {
         label="netdev 初始化";
         cluster=true;
