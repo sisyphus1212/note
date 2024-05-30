@@ -53,6 +53,7 @@ digraph {
                         -> vhost_virtqueue_init
                         -> vhost_user_set_vring_call
 
+net_vhost_user_init -> qemu_chr_fe_init 关联vhost user 与 chrdev
 
     qemu_init -> qemu_create_early_backends[label="创建chardev 并等待连接"] qemu_create_early_backends -> qemu_opts_foreach
                       -> chardev_init_func
