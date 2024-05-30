@@ -35,8 +35,6 @@ digraph {
               -> net_client_init_fun
               -> net_init_vhost_user
 
-
-
     net_vhost_user_init -> qemu_chr_fe_wait_connected[label="vdpa 重启逻辑"]
                            qemu_chr_fe_wait_connected
                         -> vhost_dev_init
