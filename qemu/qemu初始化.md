@@ -60,7 +60,7 @@ digraph {
     }
 
     subgraph vhost_user_init {
-        label="vhost_user 协商流程";
+        label="vhost_user 协商";
         cluster=true;
         net_vhost_user_event -> vhost_user_start
                              -> vhost_net_init
