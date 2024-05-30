@@ -62,18 +62,18 @@ digraph {
     subgraph vhost_user_init {
         label="vhost_user 初始化";
         cluster=true;
-        net_vhost_user_event -> vhost_user_start
+        net_vhost_user_event ->                         -> vhost_user_start
+                        -> vhost_net_init
+                        -> vhost_dev_init
+                        -> vhost_virtqueue_init
+                        -> vhost_user_set_vring_call
     }
     net_vhost_user_init -> qemu_chr_fe_set_handlers
                         -> qemu_chr_fe_set_handlers_full
                         -> qemu_chr_be_event
                         -> chr_be_event
                         -> net_vhost_user_event
-                        -> vhost_user_start
-                        -> vhost_net_init
-                        -> vhost_dev_init
-                        -> vhost_virtqueue_init
-                        -> vhost_user_set_vring_call
+
 
     net_vhost_user_init -> qemu_chr_fe_init[label="关联vhost user 与 chrdev"]
 
