@@ -61,6 +61,7 @@ digraph {
 
     subgraph vhost_user_init {
         label="vhost_user 初始化";
+
         net_vhost_user_event -> vhost_user_start
     }
     net_vhost_user_init -> qemu_chr_fe_set_handlers
