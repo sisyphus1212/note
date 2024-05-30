@@ -61,8 +61,6 @@ digraph {
                             vhost_dev_init
                             -> vhost_set_backend_type[label="根据backend_type设置vhost_ops为user_ops"]
 
-
-
         net_vhost_user_init -> qemu_chr_fe_init[label="关联vhost user 与 chrdev"]
     }
 
