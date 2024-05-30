@@ -18,11 +18,14 @@ fontname="Helvetica,Arial,sans-serif"
 //rankdir="LR"
 node [fontsize=10, shape=record, height=0.25]
 edge [fontsize=10]
-qemu_init -> qemu_create_late_backends
-          -> net_init_clients
-          -> qemu_opts_foreach
-          -> net_init_netdev
-          -> net_client_init
-          -> visit_type_Netdev
+  subgraph send {
+    cluster=true;
+    qemu_init -> qemu_create_late_backends
+              -> net_init_clients
+              -> qemu_opts_foreach
+              -> net_init_netdev
+              -> net_client_init
+              -> visit_type_Netdev
+  }
 }
 ```
