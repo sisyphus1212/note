@@ -92,7 +92,7 @@ digraph {
 
     //net_vhost_user_event
 
-    vhost_user_one_time_request
+    //vhost_user_one_time_request
 }
 ```
 
