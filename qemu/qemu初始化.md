@@ -69,7 +69,7 @@ digraph {
         //vhost_dev_init ->
         vhost_dev_init -> vhost_backend_init[label="1"]
             vhost_backend_init -> vhost_user_get_features
-            vhost_backend_init ->
+            vhost_backend_init -> vhost_user_set_protocol_features
         vhost_dev_init -> vhost_set_owner[label="2"]
         vhost_dev_init -> vhost_get_features[label="3"]
         vhost_dev_init -> vhost_virtqueue_init[label="4"]
