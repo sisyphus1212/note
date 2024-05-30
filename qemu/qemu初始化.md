@@ -46,6 +46,7 @@ digraph {
         -> net_client_init
         -> visit_type_Netdev
     }
+
     subgraph vhost_user_init {
         label="qemu vhost_user 初始化";
         cluster=true;
