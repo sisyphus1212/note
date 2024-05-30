@@ -86,7 +86,7 @@ digraph {
                              -> vhost_user_set_vring_call
     }
 
-    qemu_init -> qmp_x_exit_preconfig -> qemu_init_board[label="初始化cpu 内存"]
+    qemu_init -> qmp_x_exit_preconfig -> qemu_init_board[label="初始化cpu内存"]
 
     vhost_dev_init
 
