@@ -125,3 +125,5 @@ digraph {
 http://blog.chinaunix.net/uid-28541347-id-5786547.html
 https://blog.csdn.net/hzj_001/article/details/94156107
 https://blog.csdn.net/qq_41596356/article/details/128538073
+
+问题: pcie的配置空间是在哪里初始化的
