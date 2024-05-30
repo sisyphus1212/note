@@ -32,7 +32,7 @@ digraph {
               -> net_vhost_user_init
               -> qemu_chr_fe_wait_connected
               -> vhost_dev_init
-
+        qemu_init -> qemu_create_early_backends[label="创建chardev 并等待连接"]
     subgraph netdev_init {
         label="netdev 初始化";
         cluster=true;
