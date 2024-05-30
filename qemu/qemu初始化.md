@@ -85,6 +85,7 @@ digraph {
                              -> vhost_virtqueue_init
                              -> vhost_user_set_vring_call
     }
+
     subgraph vdpa_restart {
         label="vdpa_重启";
         cluster=true;
