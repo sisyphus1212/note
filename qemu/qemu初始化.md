@@ -33,6 +33,7 @@ digraph {
               -> net_vhost_user_init
               -> qemu_chr_fe_wait_connected
               -> vhost_dev_init
+
     subgraph netdev_init {
         label="netdev 初始化";
         cluster=true;
