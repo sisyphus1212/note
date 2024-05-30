@@ -12,6 +12,6 @@ tags:
 
 ```graphviz
 digraph {
-qemu_init -> qemu_create_late_backends -> net_init_netdev -> net_client_init ->
+qemu_init -> qemu_create_late_backends -> net_init_netdev -> net_client_init -> visit_start_struct
 }
 ```
