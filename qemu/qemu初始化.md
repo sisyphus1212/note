@@ -67,6 +67,7 @@ digraph {
                 -> net_client_init
                 -> visit_type_Netdev
     }
+
     qemu_init -> qmp_x_exit_preconfig -> qemu_init_board // 初始化cpu 内存
 
     vhost_dev_init
