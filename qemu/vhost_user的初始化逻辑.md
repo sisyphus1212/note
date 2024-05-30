@@ -5,7 +5,7 @@ index_img: https://img-en.fs.com/community/upload/wangEditor/202003/24/_15850465
 categories:
   - [linux,网络开发,虚拟化开发]
 tags:
- - kernel_network
+ - qemu
  - vdpa
 ---
 
