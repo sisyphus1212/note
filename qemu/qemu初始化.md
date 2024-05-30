@@ -48,15 +48,15 @@ digraph {
         label="chardev 初始化";
         cluster=true;
         chardev_init_func
-         -> qemu_chr_new_from_opts
-         -> qemu_chardev_new
-         -> chardev_new
-         -> qemu_char_open
-         -> qmp_chardev_open_socket
-         -> qmp_chardev_open_socket_server
-         -> tcp_chr_accept_server_sync
-         -> qio_net_listener_wait_client
-         -> g_main_loop_run
+            -> qemu_chr_new_from_opts
+            -> qemu_chardev_new
+            -> chardev_new
+            -> qemu_char_open
+            -> qmp_chardev_open_socket
+            -> qmp_chardev_open_socket_server
+            -> tcp_chr_accept_server_sync
+            -> qio_net_listener_wait_client
+            -> g_main_loop_run
     }
 
     subgraph vhost_user_init {
