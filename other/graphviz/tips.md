@@ -305,7 +305,7 @@ digraph structs2
 digraph weighted {
     a [weight = 5];
     b [weight = 2];
-    c [weight = 12];
+    c [weight = 123];
     d [weight = 7];
 
     a -> b -> c -> d;
