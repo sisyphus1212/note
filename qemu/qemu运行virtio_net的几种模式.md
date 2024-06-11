@@ -80,7 +80,7 @@ set -e
 TAP_DEVICE="$1"
 
 echo $TAP_DEVICE
-BRIDGE=docker0
+BRIDGE=${br}
 
 # Check if the bridge exists
 if ! [ -d "/sys/class/net/${BRIDGE}/bridge" ]; then
