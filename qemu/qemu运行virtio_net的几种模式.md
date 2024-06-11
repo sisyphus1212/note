@@ -96,4 +96,5 @@ ip link set "${TAP_DEVICE}" master "${BRIDGE}"
 
 exit 0
 EOF
+chmod  0777   /etc/qemu-ifup
 ```
