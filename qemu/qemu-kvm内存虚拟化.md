@@ -38,6 +38,7 @@ digraph {
         label="虚拟机内存初始化"
         qemu_init_board -> machine_run_board_init
                         -> pc_init_v7_2
+                        -> pc_q35_init
                         ->
     }
     qemu_init -> qemu_create_machine
