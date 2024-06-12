@@ -39,7 +39,7 @@ digraph {
         qemu_init_board -> machine_run_board_init
                         -> pc_init_v7_2
                         -> pc_q35_init
-                        ->
+                        -> pc_memory_init
     }
     qemu_init -> qemu_create_machine
               -> cpu_exec_init_all
