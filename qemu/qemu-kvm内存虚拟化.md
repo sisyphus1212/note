@@ -9,7 +9,7 @@ tags:
 ---
 ```graphviz
 digraph {
-qemu_init -> qemu_create_machine
+    qemu_init -> qemu_create_machine
 
 }
 ```
