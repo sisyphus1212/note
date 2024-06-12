@@ -16,6 +16,7 @@ digraph {
     node [fontsize=10, shape=record, height=0.25]
     edge [fontsize=10]
     subgraph vhost_user_negotiation {
+
     }
     qemu_init -> qemu_create_machine
               -> cpu_exec_init_all
