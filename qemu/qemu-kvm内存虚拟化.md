@@ -19,6 +19,6 @@ digraph {
               -> cpu_exec_init_all
               -> memory_map_init
               -> memory_region_init
-              ->
+              -> memory_region_init_io
 }
 ```
