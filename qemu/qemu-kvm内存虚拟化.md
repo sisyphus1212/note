@@ -10,5 +10,6 @@ tags:
 ```graphviz
 digraph {
 qemu_init -> qemu_create_machine
+
 }
 ```
