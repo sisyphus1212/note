@@ -1,1 +1,1 @@
-qemu_init_board ->
+qemu_init -> qmp_x_exit_preconfig
