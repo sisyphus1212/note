@@ -18,7 +18,9 @@ digraph {
     qemu_init -> qemu_create_machine
               -> cpu_exec_init_all
               -> memory_map_init
-              -> memory_region_init
-              -> memory_region_init_io
+              memory_map_init
+                -> memory_region_init
+              memory_map_init
+                -> memory_region_init_io
 }
 ```
