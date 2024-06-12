@@ -18,7 +18,7 @@ digraph {
     subgraph memory_map_init {
         label="创建两个AddressSpace：address_space_memory和address_space_io";
         cluster=true;
-         memory_map_init
+        memory_map_init
                 -> memory_region_init
                 -> object_initialize
                 -> object_initialize_with_type
