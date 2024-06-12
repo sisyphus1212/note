@@ -22,7 +22,7 @@ digraph {
                 -> memory_region_init
                 -> object_initialize
                 -> object_initialize_with_type
-                ->
+                -> object_init_with_type
                 -> memory_region_initfn
               memory_map_init
                 -> memory_region_init_io
