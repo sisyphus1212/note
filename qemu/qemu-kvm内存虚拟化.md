@@ -30,3 +30,4 @@ digraph {
                 -> memory_region_init_io
 }
 ```
+object_init_with_type会调用自身的实例化函数并递归地调用父类的实例化函数。对于MemoryRegion类的对象，其实例化函数为memory_region_initfn()
