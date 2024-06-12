@@ -16,7 +16,8 @@ digraph {
     node [fontsize=10, shape=record, height=0.25]
     edge [fontsize=10]
     subgraph memory_map_init {
-        label="创建两个AddressSpace：address_space_memory和address_space_io";
+        label="创建两个AddressSpace：\n
+        address_space_memory和address_space_io";
         cluster=true;
         memory_map_init
                 -> memory_region_init
