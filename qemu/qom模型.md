@@ -37,6 +37,6 @@ ModuleEntry ->
 }
 
 https://www.cnblogs.com/edver/p/14684143.html
-
+https://66ring.github.io/2021/04/17/universe/qemu/QOM_usage:how_qemu_register_a_ram/
 
 
