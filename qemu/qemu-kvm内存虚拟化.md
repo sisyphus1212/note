@@ -35,11 +35,12 @@ digraph {
 
     subgraph vm_mem_alloc {
         cluster=true;
+        "虚拟机内存初始化"
     }
     qemu_init -> qemu_create_machine
               -> cpu_exec_init_all
               -> memory_map_init
-              虚拟机内存初始化
+
 }
 ```
 object_init_with_type会调用自身的实例化函数并递归地调用父类的实例化函数。对于MemoryRegion类的对象，其实例化函数为memory_region_initfn()
