@@ -20,6 +20,8 @@ digraph {
               -> memory_map_init
               memory_map_init
                 -> memory_region_init
+                -> object_initialize
+                ->
                 -> memory_region_initfn
               memory_map_init
                 -> memory_region_init_io
