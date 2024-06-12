@@ -36,6 +36,7 @@ digraph {
     subgraph vm_mem_alloc {
         cluster=true;
         label="虚拟机内存初始化"
+
     }
     qemu_init -> qemu_create_machine
               -> cpu_exec_init_all
