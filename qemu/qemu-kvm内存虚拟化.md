@@ -11,7 +11,7 @@ tags:
 digraph {
     qemu_init -> qemu_create_machine
               -> cpu_exec_init_all
-              ->
+              -> memory_map_init
 
 }
 ```
