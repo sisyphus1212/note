@@ -16,7 +16,7 @@ digraph {
     node [fontsize=10, shape=record, height=0.25]
     edge [fontsize=10]
     subgraph memory_map_init {
-        label="vhost_user 协商";
+        label="创建两个AddressSpace：address_space_memory和address_space_io";
         cluster=true;
     }
     qemu_init -> qemu_create_machine
