@@ -15,8 +15,9 @@ digraph {
     //rankdir="LR"
     node [fontsize=10, shape=record, height=0.25]
     edge [fontsize=10]
-    subgraph vhost_user_negotiation {
-
+    subgraph memory_map_init {
+        label="vhost_user 协商";
+        cluster=true;
     }
     qemu_init -> qemu_create_machine
               -> cpu_exec_init_all
