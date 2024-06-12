@@ -18,11 +18,7 @@ digraph {
     subgraph memory_map_init {
         label="创建两个AddressSpace：address_space_memory和address_space_io";
         cluster=true;
-    }
-    qemu_init -> qemu_create_machine
-              -> cpu_exec_init_all
-              -> memory_map_init
-              memory_map_init
+         memory_map_init
                 -> memory_region_init
                 -> object_initialize
                 -> object_initialize_with_type
@@ -32,6 +28,10 @@ digraph {
                 -> memory_region_initfn
               memory_map_init
                 -> memory_region_init_io
+    }
+    qemu_init -> qemu_create_machine
+              -> cpu_exec_init_all
+              -> memory_map_init
 }
 ```
 object_init_with_type会调用自身的实例化函数并递归地调用父类的实例化函数。对于MemoryRegion类的对象，其实例化函数为memory_region_initfn()
