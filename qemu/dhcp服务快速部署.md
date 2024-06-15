@@ -30,4 +30,6 @@ EOF
 chmod  0777 ${dhcpd_cfg}
 
 sudo  docker run -itd  --name hadep-dhcp-server --net host  -v /var/lcj/:/data/ -d networkboot/dhcpd
+docker update --restart always hadep-dhcp-server
+
 ```
