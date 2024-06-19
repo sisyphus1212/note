@@ -73,7 +73,7 @@ qemu-system-x86_64 -machine q35,accel=kvm,usb=off,vmport=off,dump-guest-core=off
 
 # qemu-ifup
 ```sh
-cat << 'EOF' > /etc/qemu-ifup
+cat << 'EOF' > ./qemu-ifup
 #!/bin/sh
 set -e
 
@@ -96,5 +96,5 @@ ip link set "${TAP_DEVICE}" master "${BRIDGE}"
 
 exit 0
 EOF
-chmod  0777   /etc/qemu-ifup
+chmod  0777   ./qemu-ifup
 ```
