@@ -12,7 +12,11 @@ tags:
 ```sh
 sudo mkdir -p /etc/systemd/system/docker.service.d
 sudo touch /etc/systemd/system/docker.service.d/proxy.conf
-echo
+cat << eof >
+[Service]
+Environment="HTTP_PROXY=http:///"
+Environment="HTTPS_PROXY=http://proxy.example.com:8080/"
+eof
 dhcpd_cfg=/var/lcj/dhcpd.conf
 mkdir -p `dirname $dhcpd_cfg`
 cat <<'EOF' > ${dhcpd_cfg}
