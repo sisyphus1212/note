@@ -32,10 +32,10 @@ qemu-system-x86_64 -M q35,accel=kvm,kernel-irqchip=split \
 # vhost-user vdpa 模式
 ```sh
 #dpdk vhost-user:
-bdf=00:0a.0
-echo 7 > /sys/bus/pci/devices/0000\:0a\:00.0/sriov_numvfs
+echo 7 > /sys/bus/pci/devices/0000\:02\:00.0/sriov_numvfs
 echo 4096 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
 modprobe  vfio-pci
+bdf=00:0a.0
 ./usertools/dpdk-devbind.py -b vfio-pci ${bdf} --force
 build/examples/dpdk-vdpa -c 0x2 -n 4 --socket-mem 128 -a ${bdf},vdpa=1,sw-live-migration=1 --iova-mode=va --log-level=.,8 -- --iface /tmp/vdpa-socket --client
 
