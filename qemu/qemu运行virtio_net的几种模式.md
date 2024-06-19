@@ -33,7 +33,7 @@ qemu-system-x86_64 -M q35,accel=kvm,kernel-irqchip=split \
 ```sh
 #dpdk vhost-user:
 bdf=00:0a.0
-echo
+echo echo 2 > /sys/bus/pci/devices/0000\:0a\:00.0/sriov_numvfs
 echo 4096 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
 modprobe  vfio-pci
 ./usertools/dpdk-devbind.py -b vfio-pci ${bdf} --force
