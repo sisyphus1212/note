@@ -17,6 +17,7 @@ cat << 'eof' > /etc/systemd/system/docker.service.d/proxy.conf
 Environment="HTTP_PROXY=http://172.17.0.1:20171/"
 Environment="HTTPS_PROXY=http://172.17.0.1:20171/"
 eof
+
 dhcpd_cfg=/var/lcj/dhcpd.conf
 mkdir -p `dirname $dhcpd_cfg`
 cat <<'EOF' > ${dhcpd_cfg}
