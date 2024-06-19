@@ -14,8 +14,8 @@ sudo mkdir -p /etc/systemd/system/docker.service.d
 sudo touch /etc/systemd/system/docker.service.d/proxy.conf
 cat << eof >
 [Service]
-Environment="HTTP_PROXY=http:///"
-Environment="HTTPS_PROXY=http://proxy.example.com:8080/"
+Environment="HTTP_PROXY=http://172.17.0.1:20171/"
+Environment="HTTPS_PROXY=http://172.17.0.1:20171/"
 eof
 dhcpd_cfg=/var/lcj/dhcpd.conf
 mkdir -p `dirname $dhcpd_cfg`
