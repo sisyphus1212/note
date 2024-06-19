@@ -33,7 +33,8 @@ qemu-system-x86_64 -M q35,accel=kvm,kernel-irqchip=split \
 ```sh
 #dpdk vhost-user:
 bdf=00:0a.0
-echo 1024 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+echo
+echo 4096 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
 modprobe  vfio-pci
 ./usertools/dpdk-devbind.py -b vfio-pci ${bdf} --force
 build/examples/dpdk-vdpa -c 0x2 -n 4 --socket-mem 128 -a ${bdf},vdpa=1,sw-live-migration=1 --iova-mode=va --log-level=.,8 -- --iface /tmp/vdpa-socket --client
