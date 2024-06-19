@@ -18,7 +18,7 @@ Environment="HTTP_PROXY=http://172.17.0.1:20171/"
 Environment="HTTPS_PROXY=http://172.17.0.1:20171/"
 Environment="NO_PROXY=localhost,127.0.0.1,.example.com"
 eof
-
+systemcl restart docker
 
 dhcpd_cfg=/var/lcj/dhcpd.conf
 mkdir -p `dirname $dhcpd_cfg`
