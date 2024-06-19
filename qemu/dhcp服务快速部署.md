@@ -10,6 +10,7 @@ tags:
 - dhcp
 ---
 ```sh
+
 dhcpd_cfg=/var/lcj/dhcpd.conf
 mkdir -p `dirname $dhcpd_cfg`
 cat <<'EOF' > ${dhcpd_cfg}
