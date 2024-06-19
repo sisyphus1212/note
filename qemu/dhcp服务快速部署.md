@@ -10,7 +10,9 @@ tags:
 - dhcp
 ---
 ```sh
-
+sudo mkdir -p /etc/systemd/system/docker.service.d
+sudo touch /etc/systemd/system/docker.service.d/proxy.conf
+echo
 dhcpd_cfg=/var/lcj/dhcpd.conf
 mkdir -p `dirname $dhcpd_cfg`
 cat <<'EOF' > ${dhcpd_cfg}
