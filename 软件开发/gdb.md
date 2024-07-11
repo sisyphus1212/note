@@ -6,5 +6,5 @@ categories:
 tags:
 - git
 ---
-shell
+```shell
 handle SIGUSR1 nostop noprint pass
