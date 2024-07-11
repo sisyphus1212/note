@@ -1,5 +1,5 @@
 ---
-title: gdb 常用命令
+title: 常用调试命令
 date: 2024-07-11 15:01:09
 categories:
 - [其它]
