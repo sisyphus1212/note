@@ -12,4 +12,5 @@ handle SIGUSR1 nostop noprint pass
 
 set print array-indexes on
 set print pretty on
+wa a thread 2
 ```
