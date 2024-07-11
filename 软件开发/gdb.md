@@ -8,3 +8,4 @@ tags:
 ---
 ```shell
 handle SIGUSR1 nostop noprint pass
+```
