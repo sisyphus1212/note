@@ -13,6 +13,8 @@ handle SIGUSR1 nostop noprint pass
 
 set print array-indexes on
 set print pretty on
+
+# watch point
 wa a thread 2
 aw a
 rw a
