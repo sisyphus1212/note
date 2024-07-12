@@ -19,5 +19,5 @@ wa a thread 2
 aw a
 rw a
 ```
-
+## 多进程调试
 ![alt text](../../medias/images_0/gdb_image.png)
