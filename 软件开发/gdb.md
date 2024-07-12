@@ -21,3 +21,5 @@ rw a
 ```
 ## 多进程调试
 ![alt text](../../medias/images_0/gdb_image.png)
+## 多线程调试
+![alt text](../../medias/images_0/gdb_image-1.png)
