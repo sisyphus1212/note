@@ -19,3 +19,5 @@ wa a thread 2
 aw a
 rw a
 ```
+
+![alt text](../../medias/images_0/gdb_image.png)
