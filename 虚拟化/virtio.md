@@ -7,7 +7,7 @@ categories:
   - [linux,网络开发,虚拟化开发]
 tags:
  - kernel_network
- - vdpa
+ - virtio
 ---
 
 # split ring
