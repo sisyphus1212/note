@@ -19,3 +19,8 @@ tags:
 #define VIRTQ_DESC_F_USED (1 << 15)
 
 wrap_counter 初始化为1
+
+avail buf
+
+
+used buf
