@@ -25,5 +25,6 @@ VIRTQ_DESC_F_AVAIL == avail_wrap_counter
 VIRTQ_DESC_F_USED != avail_wrap_counter
 
 used buf
-VIRTQ_DESC_F_USED  ==
+used = !!(flags & VRING_PACKED_DESC_F_USED);
+avail = !!(flags & VRING_PACKED_DESC_F_AVAIL);
 vq->vq_packed.used_wrap_counter
