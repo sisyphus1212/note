@@ -25,4 +25,4 @@ VIRTQ_DESC_F_AVAIL == avail_wrap_counter
 VIRTQ_DESC_F_USED != avail_wrap_counter
 
 used buf
-VIRTQ_DESC_F_USED  =
+VIRTQ_DESC_F_USED  ==
