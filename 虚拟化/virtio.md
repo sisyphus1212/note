@@ -21,6 +21,7 @@ tags:
 wrap_counter 初始化为1
 
 avail buf
+avail_wrap_counter 初始化为1
 VIRTQ_DESC_F_AVAIL == avail_wrap_counter
 VIRTQ_DESC_F_USED != avail_wrap_counter
 
