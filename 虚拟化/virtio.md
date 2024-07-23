@@ -22,6 +22,6 @@ wrap_counter 初始化为1
 
 avail buf
 VIRTQ_DESC_F_AVAIL == wrap_counter
-
+VIRTQ_DESC_F_USED !=
 
 used buf
