@@ -26,3 +26,4 @@ VIRTQ_DESC_F_USED != avail_wrap_counter
 
 used buf
 VIRTQ_DESC_F_USED  ==
+vq->vq_packed.used_wrap_counter
