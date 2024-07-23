@@ -18,7 +18,6 @@ tags:
 #define VIRTQ_DESC_F_AVAIL (1 << 7)
 #define VIRTQ_DESC_F_USED (1 << 15)
 
-wrap_counter 初始化为1
 
 avail buf
 avail_wrap_counter 初始化为1
