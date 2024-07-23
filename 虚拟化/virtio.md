@@ -28,4 +28,3 @@ used buf
 used = !!(flags & VRING_PACKED_DESC_F_USED);
 avail = !!(flags & VRING_PACKED_DESC_F_AVAIL);
 avail == used && used == vq->vq_packed.used_wrap_counter;
-}
