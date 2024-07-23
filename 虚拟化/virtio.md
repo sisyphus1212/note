@@ -33,4 +33,11 @@ avail == used && used == vq->vq_packed.used_wrap_counter;
 avail_wrap_counter ==  1 -> a 1 u 0
 avail_wrap_counter ==  0 -> a 0 u 1
 
+if (vq->used_wrap_counter) {
+    flags |= VRING_DESC_F_USED;
+    flags |= VRING_DESC_F_AVAIL;
+} else {
+    flags &= ~VRING_DESC_F_USED;
+    flags &= ~VRING_DESC_F_AVAIL;
+}
 
