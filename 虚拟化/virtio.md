@@ -54,7 +54,7 @@ digraph {
 }
 ```
 
-# dpdk packed ring 初始化
+# dpdk packed ring 收包逻辑
 ```graphviz
 digraph {
     fontname="Helvetica,Arial,sans-serif"
