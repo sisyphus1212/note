@@ -64,6 +64,6 @@ digraph {
     node [fontsize=10, shape=record, height=0.25]
     edge [fontsize=10]
     virtio_recv_pkts_packed_vec -> virtio_recv_refill_packed_vec
-
+    virtio_recv_pkts_packed ->
 }
 ```
