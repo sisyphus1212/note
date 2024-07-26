@@ -41,4 +41,4 @@ if (vq->used_wrap_counter) {
     flags &= ~VRING_DESC_F_AVAIL;
 }
 
-#dpdk packed ring 初始化
+# dpdk packed ring 初始化
