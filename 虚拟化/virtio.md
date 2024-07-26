@@ -69,3 +69,15 @@ digraph {
 }
 ```
 ## 后端处理逻辑
+```graphviz
+digraph {
+    fontname="Helvetica,Arial,sans-serif"
+    //node [fontname="Helvetica,Arial,sans-serif"]
+    //edge [fontname="Helvetica,Arial,sans-serif"]
+    //rankdir="LR"
+    node [fontsize=10, shape=record, height=0.25]
+    edge [fontsize=10]
+    virtio_recv_pkts_packed_vec -> virtio_recv_refill_packed_vec
+    virtio_recv_pkts_packed -> virtqueue_enqueue_recv_refill_packed
+}
+```
