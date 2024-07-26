@@ -50,5 +50,6 @@ digraph {
     //rankdir="LR"
     node [fontsize=10, shape=record, height=0.25]
     edge [fontsize=10]
+    virtio_init_vring ->
 }
 ```
