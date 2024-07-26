@@ -78,5 +78,6 @@ digraph {
     node [fontsize=10, shape=record, height=0.25]
     edge [fontsize=10]
     virtio_dev_rx_single_packed -> vhost_enqueue_single_packed -> fill_vec_buf_packed
+    -> vhost_flush_enqueue_shadow_packed
 }
 ```
