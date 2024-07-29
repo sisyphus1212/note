@@ -45,4 +45,4 @@ docker update --restart always hadep-dhcp-server
 
 ```
 scp lcj@192.168.2.71:/home/lcj/hadep-dhcp-server-image.tar ./hadep-dhcp-server-image.tar
-: lcj@ps-aux
+lcj@ps-aux
