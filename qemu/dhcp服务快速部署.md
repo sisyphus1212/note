@@ -27,12 +27,12 @@ cat <<'EOF' > ${dhcpd_cfg}
 default-lease-time 600;
 max-lease-time 7200;
 
-subnet  172.17.0.0 netmask 255.255.255.0 {
-    range  172.17.0.2 172.17.0.10;
+subnet  182.16.2.0 netmask 255.255.255.0 {
+    range  182.16.2.125 182.16.2.250;
     option domain-name-servers ns1.example.org, ns2.example.org;
     option domain-name "mydomain.example";
-    option routers 172.17.0.1;
-    option broadcast-address 172.17.0.1;
+    #option routers 182.16.2.11;
+    option broadcast-address 182.16.2.11;
     default-lease-time 600;
     max-lease-time 7200;
 }
@@ -40,7 +40,7 @@ subnet  172.17.0.0 netmask 255.255.255.0 {
 EOF
 chmod  0777 ${dhcpd_cfg}
 
-sudo  docker run -itd  --name hadep-dhcp-server --net host  -v /var/lcj/:/data/ -d networkboot/dhcpd
+sudo  docker run -itd  --name hadep-dhcp-server --net host  -v  `dirname $dhcpd_cfg`:/data/ -d networkboot/dhcpd
 docker update --restart always hadep-dhcp-server
 
 ```
