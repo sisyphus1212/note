@@ -32,7 +32,7 @@ subnet  182.16.2.0 netmask 255.255.255.0 {
     option domain-name-servers ns1.example.org, ns2.example.org;
     option domain-name "mydomain.example";
     #option routers 182.16.2.11;
-    option broadcast-address 182.16.2.11;
+    option broadcast-address 182.16.2.255;
     default-lease-time 600;
     max-lease-time 7200;
 }
