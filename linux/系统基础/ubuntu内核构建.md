@@ -17,7 +17,9 @@ git checkout 948bd6b3f8eb95
 或者
 git clone git@github.com:sisyphus1212/Ubuntu-5.15.0-91.101.git
 
+apt install debhelper
 unset FAKEROOTKEY
 fakeroot debian/rules clean
 fakeroot debian/rules editconfigs
+fakeroot debian/rules binary-generic
 ```
