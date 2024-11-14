@@ -31,6 +31,7 @@ git config --global core.fileMode false
 `git push origin --delete <远程分支名>`
 
 1. 远程关联
+`git remote add origin git@github.com:yourusername/yourrepo.git`
 `git remote set-url origin git@github.com:yourusername/yourrepo.git`
 `git remote -v`
 
