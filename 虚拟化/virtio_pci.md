@@ -84,3 +84,6 @@
 #29 0xffffffff81518bcb in virtio_pci_probe (pci_dev=0xffff888102eeb000, id=<optimized out>) at drivers/virtio/virtio_pci_common.c:552
 #30 0xffffffff8148a0d3 in local_pci_probe (_ddi=_ddi@entry=0xffffc90000393b68) at drivers/pci/pci-driver.c:323
 #31 0xffffffff8148b94d in pci_call_probe (id=<optimized out>, dev=0xffff888102eeb000, drv=0xffffffff82dc0da0 <virtio_pci_driver>) at drivers/pci/pci-driver.c:380
+
+
+# 中断配置
