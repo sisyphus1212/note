@@ -1,0 +1,66 @@
+---
+title: armv8 异常处理
+date: 2024-11-20 14:46:23
+tags:
+---
+
+```c
+/*
+ * Exception vectors.
+ */
+	.pushsection ".entry.text", "ax"
+
+	.align	11
+SYM_CODE_START(vectors)
+	kernel_ventry	1, t, 64, sync		// Synchronous EL1t
+	kernel_ventry	1, t, 64, irq		// IRQ EL1t
+	kernel_ventry	1, t, 64, fiq		// FIQ EL1h
+	kernel_ventry	1, t, 64, error		// Error EL1t
+
+	kernel_ventry	1, h, 64, sync		// Synchronous EL1h
+	kernel_ventry	1, h, 64, irq		// IRQ EL1h
+	kernel_ventry	1, h, 64, fiq		// FIQ EL1h
+	kernel_ventry	1, h, 64, error		// Error EL1h
+
+	kernel_ventry	0, t, 64, sync		// Synchronous 64-bit EL0
+	kernel_ventry	0, t, 64, irq		// IRQ 64-bit EL0
+	kernel_ventry	0, t, 64, fiq		// FIQ 64-bit EL0
+	kernel_ventry	0, t, 64, error		// Error 64-bit EL0
+
+	kernel_ventry	0, t, 32, sync		// Synchronous 32-bit EL0
+	kernel_ventry	0, t, 32, irq		// IRQ 32-bit EL0
+	kernel_ventry	0, t, 32, fiq		// FIQ 32-bit EL0
+	kernel_ventry	0, t, 32, error		// Error 32-bit EL0
+SYM_CODE_END(vectors)
+
+// kernel_ventry 的定义
+	.macro kernel_ventry, el:req, ht:req, regsize:req, label:req
+	.align 7
+#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+	.if	\el == 0
+alternative_if ARM64_UNMAP_KERNEL_AT_EL0
+	.if	\regsize == 64
+	mrs	x30, tpidrro_el0
+	msr	tpidrro_el0, xzr
+	.else
+	mov	x30, xzr
+	.endif
+alternative_else_nop_endif
+	.endif
+#endif
+
+	sub	sp, sp, #PT_REGS_SIZE
+#ifdef CONFIG_VMAP_STACK
+	/*
+	 * Test whether the SP has overflowed, without corrupting a GPR.
+	 * Task and IRQ stacks are aligned so that SP & (1 << THREAD_SHIFT)
+	 * should always be zero.
+	 */
+	add	sp, sp, x0			// sp' = sp + x0
+	sub	x0, sp, x0			// x0' = sp' - x0 = (sp + x0) - x0 = sp
+	tbnz	x0, #THREAD_SHIFT, 0f
+	sub	x0, sp, x0			// x0'' = sp' - x0' = (sp + x0) - sp = x0
+	sub	sp, sp, x0			// sp'' = sp' - x0 = (sp + x0) - x0 = sp
+	b	el\el\ht\()_\regsize\()_\label //kernel_ventry	1, t, 64, fiq -> 展开 b
+```
+
