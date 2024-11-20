@@ -3,6 +3,23 @@ title: armv8 异常处理
 date: 2024-11-20 14:46:23
 tags:
 ---
+ARMv8/AArch64 架构定义了多个异常级别（Exception Level，EL）：
+- EL0：用户态（应用程序运行的级别）。
+- EL1：内核态（操作系统内核运行的级别）。
+- EL2：虚拟化管理程序（Hypervisor）。
+- EL3：安全监控器（Secure Monitor）
+
+# 异常入口模式：
+
+## Thread 模式（t）：
+异常处理时使用 SP_EL0 作为栈指针。
+通常用于从低异常级别（如 EL0）跳转到高异常级别（如 EL1）的情况。
+适用于从用户态进入内核态的异常。
+
+## Handler 模式（h）：
+异常处理时使用 SP_ELx（当前异常级别的栈指针，如 SP_EL1）作为栈指针。
+通常用于在相同异常级别内处理异常的情况。
+适用于内核态内部发生的异常。
 
 ```c
 /*
@@ -61,6 +78,7 @@ alternative_else_nop_endif
 	tbnz	x0, #THREAD_SHIFT, 0f
 	sub	x0, sp, x0			// x0'' = sp' - x0' = (sp + x0) - sp = x0
 	sub	sp, sp, x0			// sp'' = sp' - x0 = (sp + x0) - x0 = sp
-	b	el\el\ht\()_\regsize\()_\label //kernel_ventry	1, t, 64, fiq -> 展开 b
+	b	el\el\ht\()_\regsize\()_\label //kernel_ventry	1, t, 64, fiq -> 展开 b   el1t_64_sync
 ```
+
 
