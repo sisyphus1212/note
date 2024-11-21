@@ -4,6 +4,12 @@ date: 2024-11-20 14:46:23
 tags:
 ---
 
+- 在硬中断执行完毕刚刚开中断的时候，以 ARM 架构为例，缺省没有强制线程化（`force_irqthreads` 默认为 0）的执行流程如下：`handle_IRQ()` -> `irq_exit()` -> `__irq_exit_rcu()` -> `invoke_softirq()` –> `__do_softirq()`。
+- 在 ksoftirqd 内核态线程被调度中被执行：`run_ksoftirqd()` -> `__do_softirq()`。
+- 在所有内核执行路径中可能会使能软中断处理的地方，具体来说就是调用诸如 `local_bh_enable()` 这些函数中。函数调用序列为 `local_bh_enable()` -> `_local_bh_enable_ip()` -> `do_softirq()` -> `do_softirq_own_stack` -> `__do_softirq()`。
+
+软中断与硬中断的一个关键区别在于：硬中断需要现场保护、恢复，而软中断是由进程调度实现的，只是说软中断的进程调度优先级高于一般进程，值得注意的是软中断并不处于进程上下文，而是出于软中断上下文
+
 ```c
 asmlinkage __visible void __softirq_entry __do_softirq(void)
 {
@@ -83,3 +89,31 @@ restart:
 	current_restore_flags(old_flags, PF_MEMALLOC);
 }
 ```
+
+```c
+static inline void invoke_softirq(void)
+{
+	if (ksoftirqd_running(local_softirq_pending()))
+		return;
+
+	if (!force_irqthreads() || !__this_cpu_read(ksoftirqd)) {
+#ifdef CONFIG_HAVE_IRQ_EXIT_ON_IRQ_STACK
+		/*
+		 * We can safely execute softirq on the current stack if
+		 * it is the irq stack, because it should be near empty
+		 * at this stage.
+		 */
+		__do_softirq();
+#else
+		/*
+		 * Otherwise, irq_exit() is called on the task stack that can
+		 * be potentially deep already. So call softirq in its own stack
+		 * to prevent from any overrun.
+		 */
+		do_softirq_own_stack();
+#endif
+	} else {
+		wakeup_softirqd();
+	}
+}
+```1

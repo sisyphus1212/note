@@ -4,6 +4,8 @@ date: 2024-11-20 14:46:23
 tags:
 ---
 
+# 软中断的调度
+
 ```c
 #ifndef local_softirq_pending_ref
 #define local_softirq_pending_ref irq_stat.__softirq_pending
