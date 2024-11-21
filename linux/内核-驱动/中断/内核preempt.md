@@ -87,5 +87,4 @@ static __always_inline int preempt_count(void)
 	return raw_cpu_read_4(__preempt_count) & ~PREEMPT_NEED_RESCHED;
 }
 ```
-
-![alt text](../../../medias/images_0/内核preempt_image.png)
+![alt text](../../../../medias/images_0/内核preempt_image-1.png)
