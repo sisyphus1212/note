@@ -8,7 +8,7 @@ tags:
 
 ```c
 #ifndef local_softirq_pending_ref
-#define local_softirq_pending_ref irq_stat.__softirq_pending
+#define local_softirq_pending_ref irq_stat.__softirq_pending //软中断挂起位图，每bit代表一种软中断
 #endif
 
 #define local_softirq_pending()	(__this_cpu_read(local_softirq_pending_ref))
