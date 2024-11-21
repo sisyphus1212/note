@@ -26,7 +26,7 @@ static void run_ksoftirqd(unsigned int cpu)
 		cond_resched();
 		return;
 	}
-	ksoftirqd_run_end();  // 开启cpu 中断响应
+	ksoftirqd_run_end();  //  开启cpu 中断响应
 }
 ```
 

@@ -7,7 +7,7 @@ tags:
 enum
 {
         HI_SOFTIRQ=0, //用于实现tasklet
-        TIMER_SOFTIRQ, //TIMER_SOFTIRQ和HRTIMER_SOFTIRQ用于实现定时器
+        TIMER_SOFTIRQ,  //TIMER_SOFTIRQ和HRTIMER_SOFTIRQ用于实现定时器
         NET_TX_SOFTIRQ,
         NET_RX_SOFTIRQ,
         BLOCK_SOFTIRQ,
