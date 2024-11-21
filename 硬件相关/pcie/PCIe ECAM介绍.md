@@ -29,7 +29,7 @@ devmem 0xd0100000就是访问01:00.0 设备偏移0寄存器
 
 drivers/pci/ecam.c实现ECAM配置访问
 
-# qemu 软件仿真shixian
+# qemu 软件仿真实现
 ```c
 /*
  * PCI express ECAM (Enhanced Configuration Address Mapping) format.
