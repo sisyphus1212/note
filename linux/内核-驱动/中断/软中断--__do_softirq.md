@@ -3,6 +3,24 @@ title: __do_softirq 分析
 date: 2024-11-20 14:46:23
 tags:
 ---
+```c
+enum
+{
+        HI_SOFTIRQ=0, //用于实现tasklet
+        TIMER_SOFTIRQ, //TIMER_SOFTIRQ和HRTIMER_SOFTIRQ用于实现定时器
+        NET_TX_SOFTIRQ,
+        NET_RX_SOFTIRQ,
+        BLOCK_SOFTIRQ,
+        BLOCK_IOPOLL_SOFTIRQ,
+        TASKLET_SOFTIRQ, //用于实现tasklet
+        SCHED_SOFTIRQ,   //SCHED_SOFTIRQ用于调度器
+        HRTIMER_SOFTIRQ, /* Unused, but kept as tools rely on the
+                            numbering. Sigh! */
+        RCU_SOFTIRQ,    /* Preferable RCU should always be the last softirq */
+
+        NR_SOFTIRQS
+};
+```
 
 - 在硬中断执行完毕刚刚开中断的时候，以 ARM 架构为例，缺省没有强制线程化（`force_irqthreads` 默认为 0）的执行流程如下：`handle_IRQ()` -> `irq_exit()` -> `__irq_exit_rcu()` -> `invoke_softirq()` –> `__do_softirq()`。
 - 在 ksoftirqd 内核态线程被调度中被执行：`run_ksoftirqd()` -> `__do_softirq()`。
