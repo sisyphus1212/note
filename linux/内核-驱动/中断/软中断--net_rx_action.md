@@ -38,7 +38,7 @@ static __latent_entropy void net_rx_action(struct softirq_action *h)
 		 */
 		if (unlikely(budget <= 0 ||
 			     time_after_eq(jiffies, time_limit))) {
-			sd->time_squeeze++; //记录由于预算或时间限制而中断处理的次数,用于统计和诊断，帮助分析软中断处理是否经常受到限制，以便进行优化，通过cat  /proc/net/softnet_stat 查看
+			sd->time_squeeze++; //记录由于预算或时间限制而中断处理的次数,用于统计和诊断，帮助分析软中断处理是否经常受到限制， 以便进行优化，通过cat  /proc/net/softnet_stat 查看
 			break;
 		}
 	}
