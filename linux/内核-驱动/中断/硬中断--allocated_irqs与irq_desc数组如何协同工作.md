@@ -1,0 +1,2 @@
+硬中断--allocated_irqs与irq_desc数组如何协同工作
+allocated_irqs 代表软中断号还是硬中断号
