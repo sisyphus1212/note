@@ -197,4 +197,31 @@ static void setup_local_APIC(void)
 		cmci_recheck();
 #endif
 }
+
+
+int dmar_alloc_hwirq(int id, int node, void *arg)
+{
+	struct irq_domain *domain = dmar_get_irq_domain();
+	struct irq_alloc_info info;
+
+	if (!domain)
+		return -1;
+
+	init_irq_alloc_info(&info, NULL);
+	info.type = X86_IRQ_ALLOC_TYPE_DMAR;
+	info.devid = id;
+	info.hwirq = id;
+	info.data = arg;
+
+	return irq_domain_alloc_irqs(domain, 1, node, &info);
+}
+
+```
+
+```c
+start_kernel()
+    init_IRQ()
+        native_init_IRQ()
+            idt_setup_apic_and_irq_gates()
+                idt_setup_from_table(idt_table, apic_idts, ARRAY_SIZE(apic_idts), true);
 ```
