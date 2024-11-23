@@ -400,3 +400,12 @@ start_kernel()
             idt_setup_apic_and_irq_gates()
                 idt_setup_from_table(idt_table, apic_idts, ARRAY_SIZE(apic_idts), true);
 ```
+# msi
+```
+static const struct irq_domain_ops msi_domain_ops = {
+	.alloc		= msi_domain_alloc,
+	.free		= msi_domain_free,
+	.activate	= msi_domain_activate,
+	.deactivate	= msi_domain_deactivate,
+};
+```
