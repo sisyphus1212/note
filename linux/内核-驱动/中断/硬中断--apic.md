@@ -401,11 +401,123 @@ start_kernel()
                 idt_setup_from_table(idt_table, apic_idts, ARRAY_SIZE(apic_idts), true);
 ```
 # msi
-```
+```c
 static const struct irq_domain_ops msi_domain_ops = {
 	.alloc		= msi_domain_alloc,
 	.free		= msi_domain_free,
 	.activate	= msi_domain_activate,
 	.deactivate	= msi_domain_deactivate,
 };
+
+static const struct irq_domain_ops x86_vector_domain_ops = {
+	.select		= x86_vector_select,
+	.alloc		= x86_vector_alloc_irqs,
+	.free		= x86_vector_free_irqs,
+	.activate	= x86_vector_activate,
+	.deactivate	= x86_vector_deactivate,
+#ifdef CONFIG_GENERIC_IRQ_DEBUGFS
+	.debug_show	= x86_vector_debug_show,
+#endif
+};
+```
+
+```c
+static int msi_domain_ops_init(struct irq_domain *domain,
+			       struct msi_domain_info *info,
+			       unsigned int virq, irq_hw_number_t hwirq,
+			       msi_alloc_info_t *arg)
+{
+	irq_domain_set_hwirq_and_chip(domain, virq, hwirq, info->chip,
+				      info->chip_data);
+	if (info->handler && info->handler_name) {
+		__irq_set_handler(virq, info->handler, 0, info->handler_name);
+		if (info->handler_data)
+			irq_set_handler_data(virq, info->handler_data);
+	}
+	return 0;
+}
+
+/**
+ * irq_domain_set_hwirq_and_chip - Set hwirq and irqchip of @virq at @domain
+ * @domain:	Interrupt domain to match
+ * @virq:	IRQ number
+ * @hwirq:	The hwirq number
+ * @chip:	The associated interrupt chip
+ * @chip_data:	The associated chip data
+ */
+int irq_domain_set_hwirq_and_chip(struct irq_domain *domain, unsigned int virq,
+				  irq_hw_number_t hwirq, struct irq_chip *chip,
+				  void *chip_data)
+{
+	struct irq_data *irq_data = irq_domain_get_irq_data(domain, virq);
+
+	if (!irq_data)
+		return -ENOENT;
+
+	irq_data->hwirq = hwirq;
+	irq_data->chip = chip ? chip : &no_irq_chip;
+	irq_data->chip_data = chip_data;
+
+	return 0;
+}
+EXPORT_SYMBOL_GPL(irq_domain_set_hwirq_and_chip);
+
+
+ops->msi_init = msi_domain_ops_default.msi_init;
+
+static int msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
+			    unsigned int nr_irqs, void *arg)
+{
+	struct msi_domain_info *info = domain->host_data;
+	struct msi_domain_ops *ops = info->ops;
+	irq_hw_number_t hwirq = ops->get_hwirq(info, arg);
+	int i, ret;
+
+	if (irq_find_mapping(domain, hwirq) > 0)
+		return -EEXIST;
+
+	if (domain->parent) {
+		ret = irq_domain_alloc_irqs_parent(domain, virq, nr_irqs, arg);
+		if (ret < 0)
+			return ret;
+	}
+
+	for (i = 0; i < nr_irqs; i++) {
+		ret = ops->msi_init(domain, info, virq + i, hwirq + i, arg);
+		if (ret < 0) {
+			if (ops->msi_free) {
+				for (i--; i > 0; i--)
+					ops->msi_free(domain, info, virq + i);
+			}
+			irq_domain_free_irqs_top(domain, virq, nr_irqs);
+			return ret;
+		}
+	}
+
+	return 0;
+}
+
+int dmar_set_interrupt(struct intel_iommu *iommu)
+{
+	int irq, ret;
+
+	/*
+	 * Check if the fault interrupt is already initialized.
+	 */
+	if (iommu->irq)
+		return 0;
+
+	irq = dmar_alloc_hwirq(iommu->seq_id, iommu->node, iommu);
+	if (irq > 0) {
+		iommu->irq = irq;
+	} else {
+		pr_err("No free IRQ vectors\n");
+		return -EINVAL;
+	}
+
+	ret = request_irq(irq, dmar_fault, IRQF_NO_THREAD, iommu->name, iommu);
+	if (ret)
+		pr_err("Can't request irq\n");
+	return ret;
+}
 ```
