@@ -1,6 +1,8 @@
 
 ```c
-[__gic_init_bases() -> irq_domain_add_linear() -> __irq_domain_add()]
+# x86 初始化
+对于x86来说__irq_domain_add在arch_early_irq_init中调用
+## 初始化核心函数
 [kernel/irq/irqdomain.c]
 struct irq_domain *__irq_domain_add(struct device_node *of_node, int size,
 				    irq_hw_number_t hwirq_max, int direct_max,
@@ -31,12 +33,27 @@ struct irq_domain *__irq_domain_add(struct device_node *of_node, int size,
 }
 EXPORT_SYMBOL_GPL(__irq_domain_add);
 ```
-# x86 初始化
+
+domain->ops  为：
+```c
+static const struct irq_domain_ops x86_vector_domain_ops = {
+	.select		= x86_vector_select,
+	.alloc		= x86_vector_alloc_irqs,
+	.free		= x86_vector_free_irqs,
+	.activate	= x86_vector_activate,
+	.deactivate	= x86_vector_deactivate,
+#ifdef CONFIG_GENERIC_IRQ_DEBUGFS
+	.debug_show	= x86_vector_debug_show,
+#endif
+};
+```
+
+## 调用堆栈
 ```c
 [    0.000000]  dump_stack_lvl+0x45/0x63
 [    0.000000]  dump_stack+0x10/0x12
 [    0.000000]  __irq_domain_add+0x1a8/0x290
-[    0.000000]  ? __irq_domain_alloc_fwnode+0xb9/0xf0
+[    0.000000]  irq_domain_create_tree+0xb9/0xf0
 [    0.000000]  arch_early_irq_init+0x3a/0x79
 [    0.000000]  early_irq_init+0xe5/0xec
 [    0.000000]  start_kernel+0x449/0x661
