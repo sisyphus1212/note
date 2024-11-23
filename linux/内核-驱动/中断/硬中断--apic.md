@@ -198,6 +198,181 @@ static void setup_local_APIC(void)
 #endif
 }
 
+static int x86_vector_alloc_irqs(struct irq_domain *domain, unsigned int virq,
+				 unsigned int nr_irqs, void *arg)
+{
+	struct irq_alloc_info *info = arg;
+	struct apic_chip_data *apicd;
+	struct irq_data *irqd;
+	int i, err, node;
+	pr_info("DEBUG***** x86_vector_alloc_irqs0: %px\n", x86_vector_alloc_irqs);
+	if (disable_apic)
+		return -ENXIO;
+
+	/* Currently vector allocator can't guarantee contiguous allocations */
+	if ((info->flags & X86_IRQ_ALLOC_CONTIGUOUS_VECTORS) && nr_irqs > 1)
+		return -ENOSYS;
+
+	/*
+	 * Catch any attempt to touch the cascade interrupt on a PIC
+	 * equipped system.
+	 */
+	if (WARN_ON_ONCE(info->flags & X86_IRQ_ALLOC_LEGACY &&
+			 virq == PIC_CASCADE_IR))
+		return -EINVAL;
+
+	for (i = 0; i < nr_irqs; i++) {
+		irqd = irq_domain_get_irq_data(domain, virq + i);
+		BUG_ON(!irqd);
+		node = irq_data_get_node(irqd);
+		WARN_ON_ONCE(irqd->chip_data);
+		apicd = alloc_apic_chip_data(node);
+		if (!apicd) {
+			err = -ENOMEM;
+			goto error;
+		}
+
+		apicd->irq = virq + i;
+		irqd->chip = &lapic_controller;
+		irqd->chip_data = apicd;
+		irqd->hwirq = virq + i;
+		irqd_set_single_target(irqd);
+		/*
+		 * Prevent that any of these interrupts is invoked in
+		 * non interrupt context via e.g. generic_handle_irq()
+		 * as that can corrupt the affinity move state.
+		 */
+		irqd_set_handle_enforce_irqctx(irqd);
+
+		/* Don't invoke affinity setter on deactivated interrupts */
+		irqd_set_affinity_on_activate(irqd);
+
+		/*
+		 * Legacy vectors are already assigned when the IOAPIC
+		 * takes them over. They stay on the same vector. This is
+		 * required for check_timer() to work correctly as it might
+		 * switch back to legacy mode. Only update the hardware
+		 * config.
+		 */
+		if (info->flags & X86_IRQ_ALLOC_LEGACY) {
+			if (!vector_configure_legacy(virq + i, irqd, apicd))
+				continue;
+		}
+
+		err = assign_irq_vector_policy(irqd, info);
+		trace_vector_setup(virq + i, false, err);
+		if (err) {
+			irqd->chip_data = NULL;
+			free_apic_chip_data(apicd);
+			goto error;
+		}
+	}
+
+	return 0;
+
+error:
+	x86_vector_free_irqs(domain, virq, i);
+	return err;
+}
+
+int irq_domain_alloc_irqs_hierarchy(struct irq_domain *domain,
+				    unsigned int irq_base,
+				    unsigned int nr_irqs, void *arg)
+{
+	if (!domain->ops->alloc) {
+		pr_debug("domain->ops->alloc() is NULL\n");
+		return -ENOSYS;
+	}
+	pr_info("DEBUG***** domain->ops->alloc: %p\n", domain->ops->alloc);
+	return domain->ops->alloc(domain, irq_base, nr_irqs, arg);
+}
+
+/**
+ * __irq_domain_alloc_irqs - Allocate IRQs from domain
+ * @domain:	domain to allocate from
+ * @irq_base:	allocate specified IRQ number if irq_base >= 0
+ * @nr_irqs:	number of IRQs to allocate
+ * @node:	NUMA node id for memory allocation
+ * @arg:	domain specific argument
+ * @realloc:	IRQ descriptors have already been allocated if true
+ * @affinity:	Optional irq affinity mask for multiqueue devices
+ *
+ * Allocate IRQ numbers and initialized all data structures to support
+ * hierarchy IRQ domains.
+ * Parameter @realloc is mainly to support legacy IRQs.
+ * Returns error code or allocated IRQ number
+ *
+ * The whole process to setup an IRQ has been split into two steps.
+ * The first step, __irq_domain_alloc_irqs(), is to allocate IRQ
+ * descriptor and required hardware resources. The second step,
+ * irq_domain_activate_irq(), is to program the hardware with preallocated
+ * resources. In this way, it's easier to rollback when failing to
+ * allocate resources.
+ */
+int __irq_domain_alloc_irqs(struct irq_domain *domain, int irq_base,
+			    unsigned int nr_irqs, int node, void *arg,
+			    bool realloc, const struct irq_affinity_desc *affinity)
+{
+	int i, ret, virq;
+
+	if (domain == NULL) {
+		domain = irq_default_domain;
+		if (WARN(!domain, "domain is NULL; cannot allocate IRQ\n"))
+			return -EINVAL;
+	}
+
+	if (realloc && irq_base >= 0) {
+		virq = irq_base;
+	} else {
+		virq = irq_domain_alloc_descs(irq_base, nr_irqs, 0, node,
+					      affinity);
+		if (virq < 0) {
+			pr_debug("cannot allocate IRQ(base %d, count %d)\n",
+				 irq_base, nr_irqs);
+			return virq;
+		}
+	}
+
+	if (irq_domain_alloc_irq_data(domain, virq, nr_irqs)) {
+		pr_debug("cannot allocate memory for IRQ%d\n", virq);
+		ret = -ENOMEM;
+		goto out_free_desc;
+	}
+
+	mutex_lock(&irq_domain_mutex);
+	ret = irq_domain_alloc_irqs_hierarchy(domain, virq, nr_irqs, arg);
+	if (ret < 0) {
+		mutex_unlock(&irq_domain_mutex);
+		goto out_free_irq_data;
+	}
+
+	for (i = 0; i < nr_irqs; i++) {
+		ret = irq_domain_trim_hierarchy(virq + i);
+		if (ret) {
+			mutex_unlock(&irq_domain_mutex);
+			goto out_free_irq_data;
+		}
+	}
+
+	for (i = 0; i < nr_irqs; i++)
+		irq_domain_insert_irq(virq + i);
+	mutex_unlock(&irq_domain_mutex);
+
+	return virq;
+
+out_free_irq_data:
+	irq_domain_free_irq_data(virq, nr_irqs);
+out_free_desc:
+	irq_free_descs(virq, nr_irqs);
+	return ret;
+}
+
+static inline int irq_domain_alloc_irqs(struct irq_domain *domain,
+			unsigned int nr_irqs, int node, void *arg)
+{
+	return __irq_domain_alloc_irqs(domain, -1, nr_irqs, node, arg, false,
+				       NULL);
+}
 
 int dmar_alloc_hwirq(int id, int node, void *arg)
 {
