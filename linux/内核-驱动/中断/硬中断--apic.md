@@ -275,6 +275,40 @@ error:
 	return err;
 }
 
+
+static int msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
+			    unsigned int nr_irqs, void *arg)
+{
+	struct msi_domain_info *info = domain->host_data;
+	struct msi_domain_ops *ops = info->ops;
+	irq_hw_number_t hwirq = ops->get_hwirq(info, arg);
+	int i, ret;
+
+	if (irq_find_mapping(domain, hwirq) > 0)
+		return -EEXIST;
+
+	if (domain->parent) {
+		ret = irq_domain_alloc_irqs_parent(domain, virq, nr_irqs, arg);
+		if (ret < 0)
+			return ret;
+	}
+
+	for (i = 0; i < nr_irqs; i++) {
+		pr_info("msi_domain_alloc:ops->msi_init=%px\n", ops->msi_init);
+		ret = ops->msi_init(domain, info, virq + i, hwirq + i, arg);
+		if (ret < 0) {
+			if (ops->msi_free) {
+				for (i--; i > 0; i--)
+					ops->msi_free(domain, info, virq + i);
+			}
+			irq_domain_free_irqs_top(domain, virq, nr_irqs);
+			return ret;
+		}
+	}
+
+	return 0;
+}
+
 int irq_domain_alloc_irqs_hierarchy(struct irq_domain *domain,
 				    unsigned int irq_base,
 				    unsigned int nr_irqs, void *arg)
@@ -283,7 +317,8 @@ int irq_domain_alloc_irqs_hierarchy(struct irq_domain *domain,
 		pr_debug("domain->ops->alloc() is NULL\n");
 		return -ENOSYS;
 	}
-	pr_info("DEBUG***** domain->ops->alloc: %p\n", domain->ops->alloc);
+    // 这里调用了两个地方 static const struct irq_domain_ops x86_vector_domain_ops 和 static const struct irq_domain_ops msi_domain_ops
+    //irq_domain_alloc_irqs_hierarchy[domain->ops->alloc]
 	return domain->ops->alloc(domain, irq_base, nr_irqs, arg);
 }
 
