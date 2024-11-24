@@ -275,13 +275,30 @@ error:
 	return err;
 }
 
+static irq_hw_number_t msi_domain_ops_get_hwirq(struct msi_domain_info *info,
+						msi_alloc_info_t *arg)
+{
+	return arg->hwirq;
+}
+
+static int dmar_msi_init(struct irq_domain *domain,
+			 struct msi_domain_info *info, unsigned int virq,
+			 irq_hw_number_t hwirq, msi_alloc_info_t *arg)
+{
+	pr_info("===========================dmar_msi_init===========================\n");
+	dump_stack();
+	irq_domain_set_info(domain, virq, arg->devid, info->chip, NULL,
+			    handle_edge_irq, arg->data, "edge");
+
+	return 0;
+}
 
 static int msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
 			    unsigned int nr_irqs, void *arg)
 {
 	struct msi_domain_info *info = domain->host_data;
 	struct msi_domain_ops *ops = info->ops;
-	irq_hw_number_t hwirq = ops->get_hwirq(info, arg);
+	irq_hw_number_t hwirq = ops->get_hwirq(info, arg); //msi_domain_ops_get_hwirq
 	int i, ret;
 
 	if (irq_find_mapping(domain, hwirq) > 0)
@@ -318,7 +335,7 @@ int irq_domain_alloc_irqs_hierarchy(struct irq_domain *domain,
 		return -ENOSYS;
 	}
     // 这里调用了两个地方 static const struct irq_domain_ops x86_vector_domain_ops 和 static const struct irq_domain_ops msi_domain_ops
-    //irq_domain_alloc_irqs_hierarchy[domain->ops->alloc]
+    //irq_domain_alloc_irqs_hierarchy[domain->ops->alloc] domain == domain->parent
 	return domain->ops->alloc(domain, irq_base, nr_irqs, arg);
 }
 
