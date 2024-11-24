@@ -1,8 +1,40 @@
+# 用户态调试接口
+/sys/kernel/debug/irq/domains
+```sh
+root@vm0:~# ls /sys/kernel/debug/irq/domains/
+ DMAR-MSI     INTEL-IR-MSI-0-3   PCI-MSI-3  '\_SB.PCI0.SFB'
+ INTEL-IR-0   IO-APIC-0          VECTOR      default
 
-```c
+root@vm0:~# cat /sys/kernel/debug/irq/domains/DMAR-MSI
+name:   DMAR-MSI
+ size:   0
+ mapped: 1
+ flags:  0x00000013
+ parent: VECTOR
+    name:   VECTOR
+     size:   0
+     mapped: 41
+     flags:  0x00000003
+Online bitmaps:        8
+Global available:   1580
+Global reserved:      13
+Total allocated:      28
+System: 38: 0-19,32,50,128,236,240-242,244,246-255
+     | CPU | avl | man | mac | act | vectors
+         0   197     0     0    4  33-35,48
+         1   197     0     0    4  33-36
+         2   197     0     0    4  33-36
+         3   197     0     0    4  33-36
+         4   198     0     0    3  33-35
+         5   198     0     0    3  33-35
+         6   198     0     0    3  33-35
+         7   198     0     0    3  33-35
+```
 # x86 初始化
 对于x86来说__irq_domain_add在arch_early_irq_init中调用
+
 ## 初始化核心函数
+```c
 [kernel/irq/irqdomain.c]
 struct irq_domain *__irq_domain_add(struct device_node *of_node, int size,
 				    irq_hw_number_t hwirq_max, int direct_max,
