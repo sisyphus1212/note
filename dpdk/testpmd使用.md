@@ -22,7 +22,7 @@ tags:
 
 ./build/app/dpdk-testpmd -a 0000:0d:00.1 --file-prefix=testpmd -m 2G  -l 0-7 -n 4 -- \
                 --total-num-mbufs=103000 --mbcache=512 -a --rss-udp \
-                --forward-mode=macswap --nb-cores=4 \
+                --forward-mode=txonly --nb-cores=4 \
                 --eth-link-speed 100G --txpkts=1500 --burst=64 --txq=4 --txd=1024 --rxq=4 --rxd=1024 \
                 --eth-peer=0,04:3f:72:e4:8c:13 --tx-ip=1.1.1.1,2.2.2.15 \
                 --display-xstats tx-test --stats-period 1 --record-core-cycles --record-burst-stats
