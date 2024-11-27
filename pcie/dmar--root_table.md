@@ -19,4 +19,11 @@ Root-table是devices mapping的最顶层结构。它的起始地址由Root Table
 # regular Context-Entry
 一个context-entry用于将一个bus上的一个特定I/O device映射到其所属的domain中，也就是指向该domain的地址翻译结构。
 source-id中的低8位（device#和function#）用来作为设备在context-table中的index使用
+
+
 ![alt text](../../medias/images_0/dmar--root_table_image-6.png)
+
+## 多设备共享同一地址翻译结构
+- Device 0: Function 0（由 Context-entry 0 表示）。
+- Device 31: Function 7（由 Context-entry 255 表示）。
+这些设备可能属于同一个虚拟机或任务域（比如一个 IOMMU 配置的共享域）。，这种配置典型用于 SR-IOV (Single-Root I/O Virtualization) 场景，多个 PCIe 虚拟功能 (VF) 共享相同的 IOMMU 映射。
