@@ -1,0 +1,1 @@
+![alt text](../../medias/images_0/kvm_image.png)

@@ -1,6 +1,7 @@
 # 硬件规范
 APIC的信息在SDM vol3中有比较详细的介绍
 ![alt text](../../../../medias/images_0/硬中断--apic_image.png)
+![alt text](../../../../medias/images_0/硬中断--apic_image-1.png)
 ```c
   Timer related:
 
