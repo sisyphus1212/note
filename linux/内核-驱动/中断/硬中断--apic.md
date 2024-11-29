@@ -2,6 +2,34 @@
 APIC的信息在SDM vol3中有比较详细的介绍
 ![alt text](../../../../medias/images_0/硬中断--apic_image.png)
 ![alt text](../../../../medias/images_0/硬中断--apic_image-1.png)
+![alt text](../../../../medias/images_0/硬中断--apic_image-3.png)
+外设的中断过程
+![alt text](../../../../medias/images_0/硬中断--apic_image-2.png)
+![alt text](../../../../medias/images_0/硬中断--apic_image-5.png)
+```c
+linux.git/arch/x86/kernel/apic/io_apic.c
+static void __ioapic_write_entry(int apic, int pin, struct IO_APIC_route_entry e)
+{
+	union entry_union eu;
+	eu.entry = e;
+	/*
+	 * reg：是寄存器地址（相对比基址的偏移）；0x10，是IO APIC重定向开始的偏移，对于第1个管脚，pin值为0，0x10，0x11恰好是第一个entry；对于第2个管脚，pin值为2，0x12，0x13对应第二个entry。
+	 * value：要写入的内容，eu.w2是entry的低32位；eu.w1是entry的高32位。
+	 *
+	 */
+	io_apic_write(apic, 0x11 + 2*pin, eu.w2);
+	io_apic_write(apic, 0x10 + 2*pin, eu.w1);
+}
+static inline void io_apic_write(unsigned int apic,
+unsigned int reg, unsigned int value)
+{
+	struct io_apic __iomem *io_apic = io_apic_base(apic);
+	writel(reg, &io_apic->index);
+	writel(value, &io_apic->data);
+}
+
+```
+
 ```c
   Timer related:
 
